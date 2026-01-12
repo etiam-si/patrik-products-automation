@@ -1,0 +1,25 @@
+{
+  "name": "patrik-products-automation",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/etiam-si/patrik-products-automation#readme",
+  "bugs": {
+    "url": "https://github.com/etiam-si/patrik-products-automation/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etiam-si/patrik-products-automation.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
