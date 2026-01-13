@@ -1,0 +1,44 @@
+# ---- Base Stage ----
+# Use an official Node.js Long-Term Support (LTS) version on a lean OS like Alpine.
+FROM node:20-alpine AS base
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+#
+# ---- Dependencies Stage ----
+# This stage is dedicated to installing Node.js dependencies.
+#
+FROM base AS dependencies
+
+# Copy package.json and package-lock.json to leverage Docker cache.
+# This step will only be re-run if these files change.
+COPY package.json package-lock.json* ./
+
+# Install production dependencies using 'npm ci' for faster, reliable builds.
+RUN npm ci --only=production
+
+#
+# ---- Production Stage ----
+# This is the final, lean image that will run in production.
+#
+FROM base AS production
+
+# Set the environment to production.
+# Your index.js will not load .env.development, which is correct for production.
+ENV NODE_ENV=production
+
+# Copy the installed production dependencies from the 'dependencies' stage.
+COPY --from=dependencies /usr/src/app/node_modules ./node_modules
+
+# Copy the rest of your application source code.
+COPY . .
+
+# The node base image creates a non-root user 'node' for security.
+USER node
+
+# Expose the port your app will run on.
+EXPOSE 3000
+
+# The command to start your application.
+CMD ["node", "index.js"]
