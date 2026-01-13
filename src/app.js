@@ -4,7 +4,6 @@ const path = require('path');
 const logger = require('./middleware/logger');
 const exampleRoutes = require('./routes/exampleRoutes');
 const productRoutes = require('./routes/productRoutes');
-require('dotenv').config();
 
 const initJobs = require("./jobs")
 

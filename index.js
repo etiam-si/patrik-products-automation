@@ -1,12 +1,18 @@
 const dotenv = require('dotenv');
 const path = require('path');
 
-// 1. Load the default .env first
-dotenv.config(); 
+// Load environment variables from .env file to get potential DATA_PATH
+dotenv.config();
 
-// 2. If we are in development, load .env.development and override
+// Determine the base path for .env files. Use DATA_PATH if defined, otherwise use the project root.
+const envPath = process.env.DATA_PATH || process.cwd();
+
+// 1. Load the default .env from the determined path, overriding any previous values.
+dotenv.config({ path: path.resolve(envPath, '.env'), override: true });
+
+// 2. If in development, load .env.development from the same path and override.
 if (process.env.NODE_ENV === 'development') {
-    dotenv.config({ path: path.resolve(process.cwd(), '.env.development'), override: true });
+    dotenv.config({ path: path.resolve(envPath, '.env.development'), override: true });
 }
 const app = require('./src/app');
 

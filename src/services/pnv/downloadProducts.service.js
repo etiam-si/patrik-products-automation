@@ -49,7 +49,6 @@ const fetchDownloadLink = async (cookie) => {
                 'Cookie': cookie,
             }
         });
-        console.log(response.data)
         const downloadLink = response.data.download_link;
         if (!downloadLink) {
             throw new Error(`'download_link' not found in API response. Response data: ${JSON.stringify(response.data)}`);

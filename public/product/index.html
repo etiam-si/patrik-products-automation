@@ -487,7 +487,7 @@
                 
                 // Image cell
                 const imageUrl = (child.images && child.images.length > 0) ? child.images[0] : '';
-                childHTML += `<td>${imageUrl ? `<a href="${imageUrl}" target="_blank"><img src="${imageUrl}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;"></a>` : ''}</td>`;
+                childHTML += `<td>${imageUrl ? `<a href="${imageUrl}" target="_blank"><img src="${imageUrl}" loading="lazy" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;"></a>` : ''}</td>`;
                 
                 // Other cells
                 childHTML += `<td>${child.code || '—'}</td>`;
@@ -503,7 +503,7 @@
             if (product.images && product.images.length > 0) {
               childHTML += '<h3>Images</h3><div class="image-gallery">';
               product.images.forEach(imgUrl => {
-                childHTML += `<a href="${imgUrl}" target="_blank" rel="noopener noreferrer"><img src="${imgUrl}" alt="Product Image"></a>`;
+                childHTML += `<a href="${imgUrl}" target="_blank" rel="noopener noreferrer"><img src="${imgUrl}" loading="lazy" alt="Product Image"></a>`;
               });
               childHTML += '</div>';
             }
