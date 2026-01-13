@@ -5,7 +5,7 @@ services:
     # Build the Docker image from the Dockerfile in the current directory (.)
     build: .
     # Name the image that is built
-    image: patrik-products-automation
+    image: etiamsi/patrik-products-automation
     # A friendly name for the running container
     container_name: patrik-products-automation-app
 
