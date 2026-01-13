@@ -1,18 +1,20 @@
 const dotenv = require('dotenv');
 const path = require('path');
-
-// Load environment variables from .env file to get potential DATA_PATH
-dotenv.config();
+const { execSync } = require('child_process');
 
 // Determine the base path for .env files. Use DATA_PATH if defined, otherwise use the project root.
+// In Docker, DATA_PATH will be '/data' from the Dockerfile. Locally, it will be the project directory.
 const envPath = process.env.DATA_PATH || process.cwd();
 
-// 1. Load the default .env from the determined path, overriding any previous values.
-dotenv.config({ path: path.resolve(envPath, '.env'), override: true });
+console.log(`Loading environment files from: ${envPath}`);
 
-// 2. If in development, load .env.development from the same path and override.
+// Load the default .env file from the determined path.
+dotenv.config({ path: path.join(envPath, '.env') });
+
+// If in development, load .env.development to override any default values.
+// The 'override' option is only needed here to ensure development settings take precedence.
 if (process.env.NODE_ENV === 'development') {
-    dotenv.config({ path: path.resolve(envPath, '.env.development'), override: true });
+  dotenv.config({ path: path.resolve(envPath, '.env.development'), override: true });
 }
 const app = require('./src/app');
 
