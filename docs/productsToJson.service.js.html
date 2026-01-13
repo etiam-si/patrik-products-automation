@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>productsToJson.service.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#downloadFile">downloadFile</a></li><li><a href="global.html#downloadProducts">downloadProducts</a></li><li><a href="global.html#fetchDownloadLink">fetchDownloadLink</a></li><li><a href="global.html#getAllParentProductsData">getAllParentProductsData</a></li><li><a href="global.html#getAuthCookie">getAuthCookie</a></li><li><a href="global.html#getUniqueParentProductCodes">getUniqueParentProductCodes</a></li><li><a href="global.html#parseProductsCsv">parseProductsCsv</a></li><li><a href="global.html#productsToJson">productsToJson</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">productsToJson.service.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const {productMapping} = require("../../config/pnv/products")
+const { parse } = require('csv-parse');
+const fs = require('fs');
+const path = require('path');
+
+/**
+ * Reads and parses the products.csv file.
+ * @returns {Promise&lt;Array&lt;Object>>} A promise that resolves with an array of product objects.
+ */
+const parseProductsCsv = () => {
+    return new Promise((resolve, reject) => {
+        const pnvDataDir = path.resolve(process.env.DATA_PATH || path.join(__dirname, '..', '..', '..', 'data'), 'pnv');
+        const csvFilePath = path.join(pnvDataDir, "products.csv");
+
+        if (!fs.existsSync(csvFilePath)) {
+            return reject(new Error(`CSV file not found at: ${csvFilePath}`));
+        }
+
+        const products = [];
+        const parser = parse({
+            columns: true,
+            delimiter: ';',
+            trim: true,
+            bom: true,
+        });
+
+        const stream = fs.createReadStream(csvFilePath);
+        stream.pipe(parser);
+
+        parser.on('data', (row) => {
+            products.push(row);
+        });
+
+        parser.on('end', () => {
+            resolve(products);
+        });
+
+        parser.on('error', (err) => {
+            reject(err);
+        });
+    });
+};
+
+/**
+ * Parses the products.csv file to extract unique values from the "Koda nadprodukta" column.
+ * It then logs these unique values as a JSON array to the console.
+ *
+ * @param {Array&lt;Object>} products - The array of product objects from the CSV.
+ * @returns {Array&lt;string>} An array of unique parent product codes.
+ */
+const getUniqueParentProductCodes = (products) => {
+    const uniqueParentCodes = new Set();
+    const parentProductCodeColumn = 'Koda nadprodukta';
+    products.forEach(row => {
+        if (row[parentProductCodeColumn]) {
+            uniqueParentCodes.add(row[parentProductCodeColumn]);
+        }
+    });
+    return Array.from(uniqueParentCodes);
+};
+
+/**
+ * Finds parent products from the list of all products based on the provided codes.
+ *
+ * @param {Array&lt;Object>} allProducts - Array of all products from the CSV.
+ * @param {Array&lt;string>} parentProductCodes - Array of parent product codes to find.
+ * @param {Array&lt;Object>} columnMapping - An array of objects specifying the mapping. e.g., [{ csvHeader: 'EAN koda', jsonKey: 'EAN' }]
+ * @returns {Array&lt;Object>} An array of JSON objects for each found parent product, containing Code and EAN.
+ */
+const getAllParentProductsData = (allProducts, parentProductCodes, columnMapping) => {
+    const parentProductsData = [];
+    const parentCodesSet = new Set(parentProductCodes);
+    const codeColumn = 'Code'; // The column used to identify a product
+
+    for (const product of allProducts) {
+        if (parentCodesSet.has(product[codeColumn])) {
+            const productJson = {};
+            for (const mapping of columnMapping) {
+                // Handle direct mapping: one csvHeader to one jsonKey
+                if (mapping.csvHeader) {
+                    const { csvHeader, jsonKey } = mapping;
+                    productJson[jsonKey] = product[csvHeader];
+                }
+                // Handle array mapping: multiple csvHeaders to one jsonKey as an array
+                else if (mapping.csvHeaders) {
+                    const { csvHeaders, jsonKey } = mapping;
+                    const values = csvHeaders
+                        .map(header => product[header])
+                        .filter(value => value !== undefined &amp;&amp; value !== ''); // Filter out empty/undefined values
+                    productJson[jsonKey] = values;
+                }
+            }
+            parentProductsData.push(productJson);
+        }
+    }
+    return parentProductsData;
+};
+
+/**
+ * Main function to parse products, find unique parent products,
+ * and return their data. Uses a default mapping if none is provided.
+ * @param {Array&lt;Object>} [columnMapping=defaultParentProductMapping] - An array of objects specifying the mapping.
+ */
+const productsToJson = async (columnMapping = productMapping) => {
+    try {
+        // This check is still useful in case null or an empty array is explicitly passed.
+        if (!columnMapping || !Array.isArray(columnMapping) || columnMapping.length === 0) {
+            throw new Error('A valid columnMapping array must be provided to productsToJson.');
+        }
+
+        const allProducts = await parseProductsCsv();
+        const uniqueParentCodes = getUniqueParentProductCodes(allProducts);
+        const parentProductsData = getAllParentProductsData(allProducts, uniqueParentCodes, columnMapping);
+
+        console.log('Parent Products Data:', JSON.stringify(parentProductsData, null, 2));
+        return parentProductsData;
+    } catch (error) {
+        console.error("Error processing products to JSON:", error);
+        // Re-throwing the error is good practice if the caller needs to handle it
+        throw error;
+    }
+};
+
+module.exports = { productsToJson };</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Tue Jan 13 2026 09:17:17 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
