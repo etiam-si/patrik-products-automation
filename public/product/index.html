@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patrik Products Overview</title>
+  <link rel="icon" href="https://www.patrikinternational.com/favicon.ico" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/8c174fdda5.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      background: #1b1b1f;
+      color: #ccc;
+      font-family: 'Montserrat', sans-serif;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #e0e0e0;
+      margin-bottom: 0.5rem;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo-container img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .logo-container h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e0e0e0;
+      letter-spacing: 2px;
+    }
+
+    .search-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      position: relative;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: rgba(40, 40, 45, 0.7);
+      border: 1px solid #333;
+      border-radius: 12px;
+      color: #ccc;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #searchInput:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+
+
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(30, 30, 35, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    th,
+    td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #2a2a2f;
+      vertical-align: middle;
+    }
+
+    thead th {
+      background: rgba(40, 40, 45, 0.8);
+      color: #00d4ff;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Main table header styling */
+    .col-expand {
+      width: 40px; /* Fixed width for expand icon */
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    .col-code {
+      width: 15%;
+      min-width: 100px; /* Ensure it doesn't get too small */
+    }
+    .col-product-name {
+      width: 40%;
+      min-width: 200px;
+    }
+    .col-categories {
+      width: 35%;
+      min-width: 150px;
+    }
+    #productsTable th:not(.col-expand):not(.col-code):not(.col-product-name):not(.col-categories) {
+        width: auto; /* Let other dynamic columns take remaining space */
+    }
+
+    tbody tr {
+      transition: background-color 0.3s ease;
+    }
+
+    tbody tr:hover {
+      background-color: rgba(45, 45, 50, 0.8);
+    }
+
+    .parent-row {
+      cursor: pointer;
+    }
+
+    .parent-row:hover .expand-icon {
+      color: #00d4ff;
+    }
+
+    .expand-icon {
+      transition: transform 0.3s ease;
+      display: inline-block;
+      width: 20px;
+    }
+
+    .child-row {
+      display: none;
+      background-color: #222226;
+    }
+
+    .child-row.show {
+      display: table-row;
+    }
+
+    .child-content {
+      padding: 1.5rem;
+      background: #252529;
+    }
+
+    .child-content h3 {
+      color: #00d4ff;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 0.5rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .details-grid dt {
+      font-weight: 600;
+      color: #888;
+      text-transform: capitalize;
+    }
+
+    .details-grid dd {
+      color: #ddd;
+    }
+
+    .details-grid dd.description-cell div {
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .child-table {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .child-table th,
+    .child-table td {
+      background: transparent;
+      border-color: #3a3a40;
+    }
+
+    .child-table thead th {
+      background: #2a2a2f;
+    }
+
+    /* Child table specific column widths */
+    .child-table .col-image {
+      width: 70px; /* For 50px image + padding */
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    .child-table .col-code {
+      width: 20%;
+      min-width: 100px;
+    }
+    .child-table .col-ean-code {
+      width: 25%;
+      min-width: 120px;
+    }
+    .child-table .col-product-name {
+      width: 55%;
+      min-width: 200px;
+    }
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .image-gallery a {
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-gallery a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 212, 255, 0.4);
+    }
+
+    .image-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .boolean-true {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .boolean-false {
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    .description-cell div {
+      max-height: 100px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #2a2a2f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #555;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00d4ff;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <img
+      src="https://imgs.pnvnet.si/img/615/301/75/2/c/www.patrikinternational.com/assets/page_info/0308183001671536508.png"
+      alt="Patrik International Logo">
+    <h1>Products Overview</h1>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search products...">
+  </div>
+
+  <div class="table-container">
+    <table id="productsTable">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <footer>© 2026 Patrik International - Product Automation</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tableHead = document.querySelector('#productsTable thead');
+      const tableBody = document.querySelector('#productsTable tbody');
+      const searchInput = document.getElementById('searchInput');
+      let productsData = [];
+      // Define a smaller, fixed set of headers for the main view
+      const mainHeaders = ['code', 'product_name', 'categories'];
+      let allHeaders = [];
+
+      // Fetch and display products
+      async function loadProducts() {
+        const loadingRow = `<tr><td colspan="${mainHeaders.length + 1}" style="text-align:center;">Loading products...</td></tr>`;
+        tableBody.innerHTML = loadingRow;
+        try {
+          // Fetching product data from the API endpoint
+          const response = await fetch('/api/product');
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const responseData = await response.json();
+          productsData = responseData.data; // Access the array from the 'data' property
+          if (productsData && productsData.length > 0) {
+            generateHeaders();
+            renderTable(productsData);
+          }
+        } catch (error) {
+          console.error("Could not load products:", error);
+          tableBody.innerHTML = `<tr><td colspan="100%" style="text-align:center; color: #dc3545;">Error loading products. See console for details.</td></tr>`;
+        }
+      }
+
+      // Helper function to decode HTML entities
+      function decodeHtmlEntities(text) {
+        const textarea = document.createElement('textarea');
+        textarea.innerHTML = text;
+        return textarea.value;
+      }
+
+      // Function to recursively check if any value in an object/array contains the search term
+      function checkValueForSearch(item, searchTerm) {
+        if (item === null || item === undefined) {
+          return false;
+        }
+
+        if (typeof item === 'string') {
+          // Decode HTML entities for descriptions before searching
+          // Heuristic: if it contains '<p>' or '&lt;', it might be HTML
+          if (item.includes('<p>') || item.includes('&lt;')) {
+            item = decodeHtmlEntities(item);
+          }
+          return item.toLowerCase().includes(searchTerm);
+        } else if (typeof item === 'number' || typeof item === 'boolean') {
+          return String(item).toLowerCase().includes(searchTerm);
+        } else if (Array.isArray(item)) {
+          return item.some(subItem => checkValueForSearch(subItem, searchTerm));
+        } else if (typeof item === 'object') {
+          // Exclude child_products and images from the top-level recursive search
+          // as they are handled explicitly in the filter logic for better control
+          return Object.keys(item).some(key => {
+            return checkValueForSearch(item[key], searchTerm);
+          });
+        }
+        return false;
+      }
+
+      // Generate table headers dynamically from the first product's keys
+      function generateHeaders() {
+        if (productsData.length > 0) {
+            allHeaders = Object.keys(productsData[0]);
+        }
+        const headerRow = document.createElement('tr');
+        headerRow.innerHTML = `<th class="col-expand"></th>` +
+          mainHeaders.map(header => {
+            let className = '';
+            if (header === 'code') className = 'col-code';
+            if (header === 'product_name') className = 'col-product-name';
+            if (header === 'categories') className = 'col-categories';
+            return `<th class="${className}">${header.replace(/_/g, ' ')}</th>`;
+          }).join('');
+        tableHead.appendChild(headerRow);
+      }
+
+      // Render the table with product data
+      function renderTable(products) {
+        tableBody.innerHTML = '';
+        products.forEach((product, index) => {
+          const parentRow = document.createElement('tr');
+          parentRow.classList.add('parent-row');
+          parentRow.dataset.index = index;
+
+          let rowContent = `<td class="expand-cell"><i class="fas fa-chevron-right expand-icon"></i></td>`;
+          mainHeaders.forEach(header => {
+            let value = product[header];
+            let cellClass = '';
+            if (typeof value === 'boolean') {
+              cellClass = value ? 'boolean-true' : 'boolean-false';
+              value = value ? 'Yes' : 'No';
+            } else if (Array.isArray(value)) {
+              value = value.join(' / ');
+            }
+
+            rowContent += `<td class="${cellClass}">${value || '—'}</td>`;
+          });
+          parentRow.innerHTML = rowContent;
+          tableBody.appendChild(parentRow);
+
+          // Collapsible child row
+          if (product.child_products && product.child_products.length > 0 || product.images && product.images.length > 0) {
+            const childRow = document.createElement('tr');
+            childRow.classList.add('child-row');
+            childRow.dataset.parentIndex = index;
+            const childCell = document.createElement('td');
+            childCell.colSpan = mainHeaders.length + 1;
+
+            let childHTML = '<div class="child-content">';
+
+            // Other Product Details
+            const detailHeaders = allHeaders.filter(h => !mainHeaders.includes(h) && h !== 'child_products' && h !== 'images');
+            if (detailHeaders.length > 0) {
+                childHTML += '<h3>Product Details</h3>';
+                childHTML += '<dl class="details-grid">';
+                detailHeaders.forEach(header => {
+                    let value = product[header];
+                    let cellClass = '';
+                    if (typeof value === 'boolean') {
+                        cellClass = value ? 'boolean-true' : 'boolean-false';
+                        value = value ? 'Yes' : 'No';
+                    } else if (Array.isArray(value)) {
+                        value = value.join(', ');
+                    } else if (header.includes('description') && value) {
+                        cellClass = 'description-cell';
+                        const decodedValue = decodeHtmlEntities(value); // Decode HTML entities
+                        value = `<div>${decodedValue}</div>`;
+                    }
+
+                    childHTML += `<dt>${header.replace(/_/g, ' ')}</dt>`;
+                    childHTML += `<dd class="${cellClass}">${value || '—'}</dd>`;
+                });
+                childHTML += '</dl>';
+            }
+
+            // Child products table
+            if (product.child_products && product.child_products.length > 0) {
+              childHTML += '<h3>Child Products</h3>';
+              // Define specific headers for child products table
+              const childHeaders = ['image', 'code', 'ean_code', 'product_name'];
+              childHTML += '<table class="child-table"><thead><tr>'; // Added class for child table
+              childHeaders.forEach(ch => {
+                let className = '';
+                if (ch === 'image') className = 'col-image';
+                if (ch === 'code') className = 'col-code';
+                if (ch === 'ean_code') className = 'col-ean-code';
+                if (ch === 'product_name') className = 'col-product-name';
+                childHTML += `<th class="${className}">${ch === 'image' ? '' : ch.replace(/_/g, ' ')}</th>`;
+              });
+              childHTML += '</tr></thead><tbody>';
+              product.child_products.forEach(child => {
+                childHTML += '<tr>';
+                
+                // Image cell
+                const imageUrl = (child.images && child.images.length > 0) ? child.images[0] : '';
+                childHTML += `<td>${imageUrl ? `<a href="${imageUrl}" target="_blank"><img src="${imageUrl}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;"></a>` : ''}</td>`;
+                
+                // Other cells
+                childHTML += `<td>${child.code || '—'}</td>`;
+                childHTML += `<td>${child.ean_code || '—'}</td>`;
+                childHTML += `<td>${child.product_name || '—'}</td>`;
+
+                childHTML += '</tr>';
+              });
+              childHTML += '</tbody></table>';
+            }
+
+            // Image gallery
+            if (product.images && product.images.length > 0) {
+              childHTML += '<h3>Images</h3><div class="image-gallery">';
+              product.images.forEach(imgUrl => {
+                childHTML += `<a href="${imgUrl}" target="_blank" rel="noopener noreferrer"><img src="${imgUrl}" alt="Product Image"></a>`;
+              });
+              childHTML += '</div>';
+            }
+
+            childHTML += '</div>';
+            childCell.innerHTML = childHTML;
+            childRow.appendChild(childCell);
+            tableBody.appendChild(childRow);
+          }
+        });
+
+        // Add event listeners for expanding/collapsing
+        document.querySelectorAll('.parent-row').forEach(row => {
+          row.addEventListener('click', () => {
+            const index = row.dataset.index;
+            const childRow = document.querySelector(`.child-row[data-parent-index='${index}']`);
+            if (childRow) {
+              childRow.classList.toggle('show');
+              const icon = row.querySelector('.expand-icon');
+              icon.style.transform = childRow.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
+            }
+          });
+        });
+      }
+
+      // Search functionality
+      searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        if (searchTerm === '') {
+          renderTable(productsData); // Show all products if search is empty
+          return;
+        }
+
+        const filteredProducts = productsData.filter(product => {
+          return checkValueForSearch(product, searchTerm);
+        });
+        renderTable(filteredProducts);
+      });
+
+      loadProducts();
+    });
+  </script>
+
+</body>
+
+</html>

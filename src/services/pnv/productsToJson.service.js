@@ -118,13 +118,16 @@ const productsToJson = async (columnMapping = productMapping) => {
         }, {});
 
         // Find parent products and attach their children
-        const parentProductsData = allProducts
-            .filter(product => !product[parentProductCodeColumn] && childrenByParentCode[product[productCodeColumn]])
-            .map(parentProduct => {
-                const mappedParent = mapProduct(parentProduct, columnMapping);
-                mappedParent.child_products = childrenByParentCode[parentProduct[productCodeColumn]] || [];
-                return mappedParent;
-            });
+        const parentProductsData = allProducts.reduce((acc, product) => {
+            // Process only products that are not children themselves.
+            if (!product[parentProductCodeColumn]) {
+                const mappedProduct = mapProduct(product, columnMapping);
+                // Attach children if any exist for this product.
+                mappedProduct.child_products = childrenByParentCode[product[productCodeColumn]] || [];
+                acc.push(mappedProduct);
+            }
+            return acc;
+        }, []);
 
         const pnvDataDir = path.resolve(process.env.DATA_PATH || path.join(__dirname, '..', '..', '..', 'data'), 'pnv');
         const jsonFilePath = path.join(pnvDataDir, 'products.json');
