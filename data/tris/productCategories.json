@@ -1,0 +1,1962 @@
+[
+  {
+    "code": "PATRIK_S_WAVE",
+    "catId": 92
+  },
+  {
+    "code": "PATRIK_S_RIDE",
+    "catId": 92
+  },
+  {
+    "code": "PATRIK_S_RACE",
+    "catId": 92
+  },
+  {
+    "code": "PATRIK_S_BOMB",
+    "catId": 92
+  },
+  {
+    "code": "PATRIK_S_FUN",
+    "catId": 92
+  },
+  {
+    "code": "PATRIK_S-CROSS",
+    "catId": 92
+  },
+  {
+    "code": "CHASE_WB-X_FOILBOARD",
+    "catId": 197
+  },
+  {
+    "code": "CHASE_WB_ML_MIDLENTH_FOILBOARD",
+    "catId": 365
+  },
+  {
+    "code": "CHASE_WB-R_FOILBOARD",
+    "catId": 365
+  },
+  {
+    "code": "CHASE_DW_X_DOWNWIND",
+    "catId": 197
+  },
+  {
+    "code": "PATRIK_FOIL_AIO_PRO",
+    "catId": 197
+  },
+  {
+    "code": "PATRIK_QTS_WAVE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_QT_WAVE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_TS_WAVE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_FWAVE_2025",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_F_WAVE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_FOIL_AIO_WINDSURF",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_AIR_STYLE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_AIRSTYLE_GEN2",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_FOIL_STYLE",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_F_CROSS",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_FOIL_MOVE",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_F_RIDE",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_FOIL_RIDE",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_F_RACE",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_SLALOM_23",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_SLALOM_AIRINSIDE_V2",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_FOIL_SLALOM",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_FOIL_COMP_GEN3",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_FOIL_COMP",
+    "catId": 396
+  },
+  {
+    "code": "P02230098200",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_DEFI_FRC",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_DEFI_LTD",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_SPEED",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_SPEED_AIRINSIDE",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_MICRO_X",
+    "catId": 91
+  },
+  {
+    "code": "P01250009085",
+    "catId": 91
+  },
+  {
+    "code": "PATRIK_MICRO_RIDE",
+    "catId": 91
+  },
+  {
+    "code": "PATRIK_E_RIDE",
+    "catId": 91
+  },
+  {
+    "code": "PATRIK_3_WAVE",
+    "catId": 156
+  },
+  {
+    "code": "PATRIK_4_WAVE_LTD",
+    "catId": 155
+  },
+  {
+    "code": "PATRIK_4_WAVE",
+    "catId": 155
+  },
+  {
+    "code": "PATRIK_5_WAVE",
+    "catId": 155
+  },
+  {
+    "code": "PATRIK_4_STYLE",
+    "catId": 155
+  },
+  {
+    "code": "PATRIK_X_CROSS_XPLY",
+    "catId": 155
+  },
+  {
+    "code": "PATRIK_X_CROSS",
+    "catId": 155
+  },
+  {
+    "code": "PATRIK_RIDE_FR",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_RIDE_FOIL",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_GT_3_FRC",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_GT_3_FOIL",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_SCREWS",
+    "catId": 106
+  },
+  {
+    "code": "PATRIK_BOOM_HEAD",
+    "catId": 166
+  },
+  {
+    "code": "PATRIK_RACE_LA",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_RACE_MA",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_RACE_HA",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_RACE_+",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_RACE_+_V2",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_FOOTSTRAPS",
+    "catId": 207
+  },
+  {
+    "code": "PATRIK_T-SHIRT_TEAM_MEN",
+    "catId": 122
+  },
+  {
+    "code": "PATRIK_FOIL_S2",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_FOIL_+",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_FOIL_+_V2",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_BACKEND_CLEAT",
+    "catId": 166
+  },
+  {
+    "code": "P06210011004",
+    "catId": 213
+  },
+  {
+    "code": "PATRIK_FIN_SCREW",
+    "catId": 213
+  },
+  {
+    "code": "PATRIK_T-SHIRT_TEAM_WOMEN",
+    "catId": 122
+  },
+  {
+    "code": "CHASE_VX_GEN4_WING",
+    "catId": 364
+  },
+  {
+    "code": "PATRIK_WING_GEN3_VOLANT_CROSS",
+    "catId": 364
+  },
+  {
+    "code": "PATRIK_WING_VOLANT_CROSS_V2",
+    "catId": 364
+  },
+  {
+    "code": "PATRIK_WING_VOLANT_CROSS",
+    "catId": 364
+  },
+  {
+    "code": "PATRIK_FOIL_SET_HF_NOVICE",
+    "catId": 366
+  },
+  {
+    "code": "PATRIK_FOIL_SET_HF_CROSS",
+    "catId": 366
+  },
+  {
+    "code": "PATRIK_BOOM_CLIP",
+    "catId": 166
+  },
+  {
+    "code": "P06210011002",
+    "catId": 246
+  },
+  {
+    "code": "PATRIK_T-SHIRT_AIR_INSIDE_MEN",
+    "catId": 122
+  },
+  {
+    "code": "PATRIK_FOIL_SET_HF_WAVE_STYLE",
+    "catId": 371
+  },
+  {
+    "code": "PATRIK_BACKEND_TUBE_CLIP",
+    "catId": 166
+  },
+  {
+    "code": "PATRIK_FIN_BOX_COVER",
+    "catId": 213
+  },
+  {
+    "code": "PATRIK_T-SHIRT_AIR_INSIDE_WOMEN",
+    "catId": 122
+  },
+  {
+    "code": "PATRIK_MAST_RDM_100",
+    "catId": 158
+  },
+  {
+    "code": "PATRIK_MAST_RDM_80",
+    "catId": 158
+  },
+  {
+    "code": "PATRIK_MAST_RDM_60",
+    "catId": 158
+  },
+  {
+    "code": "PATRIK_KIDS_MAST_RDM",
+    "catId": 158
+  },
+  {
+    "code": "PATRIK_MAST_SDM_100",
+    "catId": 159
+  },
+  {
+    "code": "PATRIK_MAST_SDM_80",
+    "catId": 159
+  },
+  {
+    "code": "PATRIK_X_TENDOR_SDM",
+    "catId": 172
+  },
+  {
+    "code": "PATRIK_XTENSION_RDM_CARBON",
+    "catId": 173
+  },
+  {
+    "code": "PATRIK_XTENSION_SDM_CARBON",
+    "catId": 172
+  },
+  {
+    "code": "PATRIK_XTENSION_RDM_ALU",
+    "catId": 173
+  },
+  {
+    "code": "PATRIK_XTENSION_SDM_ALU",
+    "catId": 172
+  },
+  {
+    "code": "P11210006999",
+    "catId": 356
+  },
+  {
+    "code": "PATRIK_EXTENSION_RDM",
+    "catId": 174
+  },
+  {
+    "code": "PATRIK_AIRVALVE",
+    "catId": 106
+  },
+  {
+    "code": "PATRIK_HOODIE",
+    "catId": 125
+  },
+  {
+    "code": "PATRIK_EXTENSION_SDM",
+    "catId": 174
+  },
+  {
+    "code": "PATRIK_NOSEPROTECTOR_EVA",
+    "catId": 103
+  },
+  {
+    "code": "PATRIK_CAP&BEANIE",
+    "catId": 295
+  },
+  {
+    "code": "P14219005001",
+    "catId": 355
+  },
+  {
+    "code": "PARTRIK_LAMINATED_NOSE_SHIELD",
+    "catId": 103
+  },
+  {
+    "code": "PATRIK_STICKER",
+    "catId": 196
+  },
+  {
+    "code": "PATRIK_ROPE",
+    "catId": 206
+  },
+  {
+    "code": "PATRIK_CARBON_S-CURVE BOOM",
+    "catId": 167
+  },
+  {
+    "code": "PATRIK_CARBON_M-CURVE_BOOM",
+    "catId": 167
+  },
+  {
+    "code": "PATRIK_CARBON_L-CURVE_BOOM",
+    "catId": 167
+  },
+  {
+    "code": "PATRIK_CARBON_XL-CURVE_BOOM",
+    "catId": 167
+  },
+  {
+    "code": "PATRIK_ALU_MICRO_BOOM",
+    "catId": 168
+  },
+  {
+    "code": "PATRIK_ALU_S-CURVE_BOOM",
+    "catId": 168
+  },
+  {
+    "code": "PATRIK_ALU_M-CURVE_BOOM",
+    "catId": 168
+  },
+  {
+    "code": "PATRIK_ALU_L-CURVE_BOOM",
+    "catId": 168
+  },
+  {
+    "code": "P06210010004",
+    "catId": 197
+  },
+  {
+    "code": "PATRIK_FOIL_SET_HF_RIDE",
+    "catId": 197
+  },
+  {
+    "code": "PATRIK_FOIL_SET_HF_RACE",
+    "catId": 197
+  },
+  {
+    "code": "PATRIK_FOIL_SET_HF_SLALOM",
+    "catId": 197
+  },
+  {
+    "code": "P05210001065",
+    "catId": 197
+  },
+  {
+    "code": "P05210001075",
+    "catId": 197
+  },
+  {
+    "code": "P05210005001",
+    "catId": 197
+  },
+  {
+    "code": "P05210006001",
+    "catId": 197
+  },
+  {
+    "code": "PATRIK_FLAG",
+    "catId": 196
+  },
+  {
+    "code": "P05210007001",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_FOIL_SET_HF_SPEED",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_FOIL_MAST_CARBON",
+    "catId": 380
+  },
+  {
+    "code": "PATRIK_FOIL_MAST_ALU",
+    "catId": 380
+  },
+  {
+    "code": "PATRIK_FOIL_FUSELAGE",
+    "catId": 379
+  },
+  {
+    "code": "PATRIK_FOIL_FRONT_WING",
+    "catId": 377
+  },
+  {
+    "code": "P14219004001",
+    "catId": 355
+  },
+  {
+    "code": "P15209903001",
+    "catId": 213
+  },
+  {
+    "code": "PATRIK_FOIL_BACK_WING",
+    "catId": 378
+  },
+  {
+    "code": "PATRIK_ALU_FOIL_ADAPTER",
+    "catId": 381
+  },
+  {
+    "code": "PATRIK_FIN_PSW_SLOT",
+    "catId": 170
+  },
+  {
+    "code": "PATRIK_FIN_PSW_NUSS",
+    "catId": 361
+  },
+  {
+    "code": "PATRIK_FIN_PPW_SLOT",
+    "catId": 170
+  },
+  {
+    "code": "PATRIK_FIN_PPW_NUSS",
+    "catId": 361
+  },
+  {
+    "code": "PATRIK_FIN_PPW_POWER",
+    "catId": 360
+  },
+  {
+    "code": "PATRIK_FIN_PSS_NUSS",
+    "catId": 361
+  },
+  {
+    "code": "PATRIK_FIN_PSS_POWER",
+    "catId": 360
+  },
+  {
+    "code": "PATRIK_FIN_PPS_POWER",
+    "catId": 360
+  },
+  {
+    "code": "PATRIK_FIN_PPS_NUSS",
+    "catId": 361
+  },
+  {
+    "code": "PATRIK_FIN_PPS_TUTTLE",
+    "catId": 170
+  },
+  {
+    "code": "PATRIK_FIN_PPR_TUTTLE",
+    "catId": 358
+  },
+  {
+    "code": "PATRIK_FIN_PSS_TUTTLE",
+    "catId": 170
+  },
+  {
+    "code": "PATRIK_FIN_PPR_POWER",
+    "catId": 357
+  },
+  {
+    "code": "PATRIK_FIN_PPRC_TUTTLE",
+    "catId": 358
+  },
+  {
+    "code": "PATRIK_FIN_PPRC_DEEP_TUTTLE",
+    "catId": 359
+  },
+  {
+    "code": "FREE_FALL_HOOK",
+    "catId": 363
+  },
+  {
+    "code": "PATRIK_HARNESS_LINE_PRO_COMP",
+    "catId": 101
+  },
+  {
+    "code": "PATRIK_HARNESS_LINE_VARIO",
+    "catId": 101
+  },
+  {
+    "code": "PATRIK_HARNESS_LINE_FIX",
+    "catId": 101
+  },
+  {
+    "code": "P12210003018",
+    "catId": 101
+  },
+  {
+    "code": "P12210005001",
+    "catId": 206
+  },
+  {
+    "code": "P12210004001",
+    "catId": 206
+  },
+  {
+    "code": "PATRIK_WEIGHT_VEST",
+    "catId": 106
+  },
+  {
+    "code": "PATRIK_SLEEVE_TOP",
+    "catId": 106
+  },
+  {
+    "code": "PATRIK_CAMBER",
+    "catId": 106
+  },
+  {
+    "code": "PATRIK_BATTEN",
+    "catId": 106
+  },
+  {
+    "code": "P14219001004",
+    "catId": 106
+  },
+  {
+    "code": "PATRIK_TENSIONER",
+    "catId": 106
+  },
+  {
+    "code": "P08210003003",
+    "catId": 106
+  },
+  {
+    "code": "PATRIK_BOARDBAG_SINGLE",
+    "catId": 177
+  },
+  {
+    "code": "PATRIK_BOARDBAG_WING",
+    "catId": 369
+  },
+  {
+    "code": "PATRIK_BOARDBAG_SINGLE_FOIL",
+    "catId": 246
+  },
+  {
+    "code": "P13230018001",
+    "catId": 177
+  },
+  {
+    "code": "PATRIK_QT_WAVE_CLOSEOUT",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_TRAILER_WAVE_CLOSEOUT",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_CAMPELLO_WAVE_CLOSEOUT",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_AIRSTYLE_CLOSEOUT",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_SPEED_ARCHIVED",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_WAVE_ONE_CLOSEOUT",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_T_WAVE_CLOSEOUT",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_F_STYLE_CLOSEOUT",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_T_WAVE_WIDE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_F_WAVE_ARCHIVED",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_TRAILER_WAVE_WIDE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_F_CROSS_CLOSEOUT",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_WING_VOLANT_RACE",
+    "catId": 364
+  },
+  {
+    "code": "PATRIK_F_RIDE_CLOSEOUT",
+    "catId": 133
+  },
+  {
+    "code": "P08210003005",
+    "catId": 331
+  },
+  {
+    "code": "PATRIK_SLALOM_CLOSEOUT",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_LEASH",
+    "catId": 367
+  },
+  {
+    "code": "",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_F-RACE_2020",
+    "catId": 133
+  },
+  {
+    "code": "P02220009999",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_IQ_SAIL",
+    "catId": 93
+  },
+  {
+    "code": "P02230001999",
+    "catId": 197
+  },
+  {
+    "code": "P14239003018",
+    "catId": 213
+  },
+  {
+    "code": "P14239003024",
+    "catId": 213
+  },
+  {
+    "code": "",
+    "catId": 133
+  },
+  {
+    "code": "P02190097155",
+    "catId": 133
+  },
+  {
+    "code": "P01180087185",
+    "catId": 396
+  },
+  {
+    "code": "P02190098190",
+    "catId": 396
+  },
+  {
+    "code": "",
+    "catId": 133
+  },
+  {
+    "code": "",
+    "catId": 133
+  },
+  {
+    "code": "P14239003160",
+    "catId": 213
+  },
+  {
+    "code": "P14219001005",
+    "catId": 106
+  },
+  {
+    "code": "P02200096100",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_AEON_WINDSURF_SETS",
+    "catId": 197
+  },
+  {
+    "code": "PATRIK_AEON_FOILMASTS",
+    "catId": 380
+  },
+  {
+    "code": "PATRIK_AEON_FRONTWINGS",
+    "catId": 377
+  },
+  {
+    "code": "PATRIK_AEON_FUSELAGES",
+    "catId": 379
+  },
+  {
+    "code": "PATRIK_AEON_BACKWINGS",
+    "catId": 378
+  },
+  {
+    "code": "PATRIK_AEON_ACCESSORIES",
+    "catId": 381
+  },
+  {
+    "code": "PATRIK_FOILRIDE_CLOSEOUT",
+    "catId": 396
+  },
+  {
+    "code": "44332211",
+    "catId": 90
+  },
+  {
+    "code": "P02230099095",
+    "catId": 396
+  },
+  {
+    "code": "P05230099000",
+    "catId": 197
+  },
+  {
+    "code": "P06240099900",
+    "catId": 377
+  },
+  {
+    "code": "P06240099255",
+    "catId": 378
+  },
+  {
+    "code": "P06240099115",
+    "catId": 379
+  },
+  {
+    "code": "P06240099095",
+    "catId": 380
+  },
+  {
+    "code": "P14240099000",
+    "catId": 381
+  },
+  {
+    "code": "P11250006999",
+    "catId": 356
+  },
+  {
+    "code": "P10240099490",
+    "catId": 159
+  },
+  {
+    "code": "P10240099530",
+    "catId": 159
+  },
+  {
+    "code": "",
+    "catId": 159
+  },
+  {
+    "code": "P10240099210",
+    "catId": 167
+  },
+  {
+    "code": "P11240099036",
+    "catId": 172
+  },
+  {
+    "code": "P14240099001",
+    "catId": 356
+  },
+  {
+    "code": "PATRIK_IQ_BOARDBAG",
+    "catId": 177
+  },
+  {
+    "code": "P14219003013",
+    "catId": 213
+  },
+  {
+    "code": "P14240001105",
+    "catId": 106
+  },
+  {
+    "code": "P14240002105",
+    "catId": 106
+  },
+  {
+    "code": "P14240003105",
+    "catId": 106
+  },
+  {
+    "code": "P14240003085",
+    "catId": 106
+  },
+  {
+    "code": "P05240004112",
+    "catId": 197
+  },
+  {
+    "code": "P05240012001",
+    "catId": 197
+  },
+  {
+    "code": "P05240012002",
+    "catId": 197
+  },
+  {
+    "code": "P08240018024",
+    "catId": 364
+  },
+  {
+    "code": "P08240018030",
+    "catId": 364
+  },
+  {
+    "code": "P08240018036",
+    "catId": 364
+  },
+  {
+    "code": "P08240018042",
+    "catId": 364
+  },
+  {
+    "code": "P08240018048",
+    "catId": 364
+  },
+  {
+    "code": "P08240018054",
+    "catId": 364
+  },
+  {
+    "code": "P08240018060",
+    "catId": 364
+  },
+  {
+    "code": "P08240018066",
+    "catId": 364
+  },
+  {
+    "code": "P07240010015",
+    "catId": 156
+  },
+  {
+    "code": "P07240010020",
+    "catId": 156
+  },
+  {
+    "code": "P07240010025",
+    "catId": 156
+  },
+  {
+    "code": "P07240010030",
+    "catId": 156
+  },
+  {
+    "code": "P07240010035",
+    "catId": 156
+  },
+  {
+    "code": "P07240010040",
+    "catId": 157
+  },
+  {
+    "code": "P07240010045",
+    "catId": 157
+  },
+  {
+    "code": "P07240011015",
+    "catId": 156
+  },
+  {
+    "code": "P07240011020",
+    "catId": 156
+  },
+  {
+    "code": "P07240011025",
+    "catId": 156
+  },
+  {
+    "code": "P07240011030",
+    "catId": 156
+  },
+  {
+    "code": "P07240011035",
+    "catId": 156
+  },
+  {
+    "code": "P07240011040",
+    "catId": 156
+  },
+  {
+    "code": "P07240011045",
+    "catId": 156
+  },
+  {
+    "code": "P09240005015",
+    "catId": 94
+  },
+  {
+    "code": "P09240005020",
+    "catId": 94
+  },
+  {
+    "code": "P09240005025",
+    "catId": 94
+  },
+  {
+    "code": "P09240005030",
+    "catId": 94
+  },
+  {
+    "code": "P09240005035",
+    "catId": 94
+  },
+  {
+    "code": "P09240005040",
+    "catId": 94
+  },
+  {
+    "code": "P09240005045",
+    "catId": 94
+  },
+  {
+    "code": "P10240003015",
+    "catId": 97
+  },
+  {
+    "code": "P10240003020",
+    "catId": 97
+  },
+  {
+    "code": "P10240003025",
+    "catId": 97
+  },
+  {
+    "code": "P10240003030",
+    "catId": 97
+  },
+  {
+    "code": "P10240003040",
+    "catId": 97
+  },
+  {
+    "code": "P11240008001",
+    "catId": 104
+  },
+  {
+    "code": "P11240008002",
+    "catId": 104
+  },
+  {
+    "code": "P10240003045",
+    "catId": 97
+  },
+  {
+    "code": "P10240001250",
+    "catId": 167
+  },
+  {
+    "code": "P12240001044",
+    "catId": 101
+  },
+  {
+    "code": "P12240001032",
+    "catId": 101
+  },
+  {
+    "code": "P13240018002",
+    "catId": 177
+  },
+  {
+    "code": "P14240003999",
+    "catId": 106
+  },
+  {
+    "code": "P14249007015",
+    "catId": 381
+  },
+  {
+    "code": "P14249007011",
+    "catId": 381
+  },
+  {
+    "code": "P14249007001",
+    "catId": 381
+  },
+  {
+    "code": "P14249007002",
+    "catId": 381
+  },
+  {
+    "code": "P14249007003",
+    "catId": 381
+  },
+  {
+    "code": "P14249007004",
+    "catId": 381
+  },
+  {
+    "code": "P14249007005",
+    "catId": 381
+  },
+  {
+    "code": "P14249007006",
+    "catId": 381
+  },
+  {
+    "code": "P14249007007",
+    "catId": 381
+  },
+  {
+    "code": "P14249007008",
+    "catId": 381
+  },
+  {
+    "code": "P14249007010",
+    "catId": 381
+  },
+  {
+    "code": "P04200007170",
+    "catId": 361
+  },
+  {
+    "code": "P04200007190",
+    "catId": 361
+  },
+  {
+    "code": "P04200007210",
+    "catId": 361
+  },
+  {
+    "code": "patrik-iq-foil-single-parts",
+    "catId": 381
+  },
+  {
+    "code": "patrik-ride-e-beginner-rig",
+    "catId": 157
+  },
+  {
+    "code": "patrik-ride-e-beginner-sail",
+    "catId": 156
+  },
+  {
+    "code": "patrik-ride-e-beginner-mast",
+    "catId": 94
+  },
+  {
+    "code": "patrik-ride-e-beginner-boom",
+    "catId": 97
+  },
+  {
+    "code": "patrik-ride-e-accessories",
+    "catId": 106
+  },
+  {
+    "code": "P14249003036",
+    "catId": 213
+  },
+  {
+    "code": "P14249003042",
+    "catId": 213
+  },
+  {
+    "code": "P14249003048",
+    "catId": 213
+  },
+  {
+    "code": "P14249003054",
+    "catId": 213
+  },
+  {
+    "code": "P14249003060",
+    "catId": 213
+  },
+  {
+    "code": "P14249003066",
+    "catId": 213
+  },
+  {
+    "code": "P14249003030",
+    "catId": 213
+  },
+  {
+    "code": "patrik-wing-gen3-volant-hookipa",
+    "catId": 364
+  },
+  {
+    "code": "volant-gen3-bladder-set",
+    "catId": 381
+  },
+  {
+    "code": "P01250002075",
+    "catId": 136
+  },
+  {
+    "code": "testpnv678",
+    "catId": 213
+  },
+  {
+    "code": "P13250019001",
+    "catId": 153
+  },
+  {
+    "code": "P13250019002",
+    "catId": 153
+  },
+  {
+    "code": "P13250019003",
+    "catId": 153
+  },
+  {
+    "code": "P15259906021",
+    "catId": 272
+  },
+  {
+    "code": "P13250017375",
+    "catId": 103
+  },
+  {
+    "code": "P13250017400",
+    "catId": 103
+  },
+  {
+    "code": "P13250017450",
+    "catId": 103
+  },
+  {
+    "code": "P13250017550",
+    "catId": 103
+  },
+  {
+    "code": "P13250017650",
+    "catId": 103
+  },
+  {
+    "code": "P13250017750",
+    "catId": 103
+  },
+  {
+    "code": "P13250017900",
+    "catId": 103
+  },
+  {
+    "code": "P13250018150",
+    "catId": 103
+  },
+  {
+    "code": "P13250018160",
+    "catId": 103
+  },
+  {
+    "code": "P13250018175",
+    "catId": 103
+  },
+  {
+    "code": "P13250018195",
+    "catId": 103
+  },
+  {
+    "code": "P13250019400",
+    "catId": 178
+  },
+  {
+    "code": "P13250020000",
+    "catId": 103
+  },
+  {
+    "code": "P14250099081",
+    "catId": 93
+  },
+  {
+    "code": "P14250099082",
+    "catId": 93
+  },
+  {
+    "code": "P14250099083",
+    "catId": 93
+  },
+  {
+    "code": "P14250099084",
+    "catId": 93
+  },
+  {
+    "code": "P14250099085",
+    "catId": 93
+  },
+  {
+    "code": "P14250099086",
+    "catId": 93
+  },
+  {
+    "code": "P14250099087",
+    "catId": 93
+  },
+  {
+    "code": "P10250099073",
+    "catId": 94
+  },
+  {
+    "code": "TESTPNV123",
+    "catId": 213
+  },
+  {
+    "code": "aeon-protection-covers",
+    "catId": 103
+  },
+  {
+    "code": "chase-downwind-boardbag",
+    "catId": 153
+  },
+  {
+    "code": "volant-gen-3-strut-bladders",
+    "catId": 299
+  },
+  {
+    "code": "patrik-iq-sail-battens",
+    "catId": 93
+  },
+  {
+    "code": "P04200010160",
+    "catId": 358
+  },
+  {
+    "code": "P02190099095",
+    "catId": 133
+  },
+  {
+    "code": "P02190099110",
+    "catId": 133
+  },
+  {
+    "code": "P02190099115",
+    "catId": 133
+  },
+  {
+    "code": "P02190099130",
+    "catId": 133
+  },
+  {
+    "code": "P07240019035",
+    "catId": 154
+  },
+  {
+    "code": "P07240019040",
+    "catId": 154
+  },
+  {
+    "code": "P06250007080",
+    "catId": 376
+  },
+  {
+    "code": "P14250099001",
+    "catId": 381
+  },
+  {
+    "code": "P15209904000",
+    "catId": 122
+  },
+  {
+    "code": "P14259044030",
+    "catId": 213
+  },
+  {
+    "code": "P14259044036",
+    "catId": 213
+  },
+  {
+    "code": "P14259044042",
+    "catId": 213
+  },
+  {
+    "code": "P14259044048",
+    "catId": 213
+  },
+  {
+    "code": "P14259044054",
+    "catId": 213
+  },
+  {
+    "code": "P14259044060",
+    "catId": 213
+  },
+  {
+    "code": "P14259044066",
+    "catId": 213
+  },
+  {
+    "code": "P14259043030",
+    "catId": 213
+  },
+  {
+    "code": "P14259043036",
+    "catId": 213
+  },
+  {
+    "code": "P14259043042",
+    "catId": 213
+  },
+  {
+    "code": "P14259043048",
+    "catId": 213
+  },
+  {
+    "code": "P14259043054",
+    "catId": 213
+  },
+  {
+    "code": "P14259043060",
+    "catId": 213
+  },
+  {
+    "code": "P14259043066",
+    "catId": 213
+  },
+  {
+    "code": "",
+    "catId": 213
+  },
+  {
+    "code": "P14259097000",
+    "catId": 381
+  },
+  {
+    "code": "P14219002015",
+    "catId": 166
+  },
+  {
+    "code": "P14250099807",
+    "catId": 106
+  },
+  {
+    "code": "P14250099736",
+    "catId": 106
+  },
+  {
+    "code": "P14250099737",
+    "catId": 106
+  },
+  {
+    "code": "P10250099460",
+    "catId": 158
+  },
+  {
+    "code": "P10250099186",
+    "catId": 168
+  },
+  {
+    "code": "P05230009900",
+    "catId": 197
+  },
+  {
+    "code": "P06250099800",
+    "catId": 377
+  },
+  {
+    "code": "P02250099085",
+    "catId": 396
+  },
+  {
+    "code": "P10250099170",
+    "catId": 168
+  },
+  {
+    "code": "P05250009901",
+    "catId": 197
+  },
+  {
+    "code": "P11250099361",
+    "catId": 173
+  },
+  {
+    "code": "P01260014069",
+    "catId": 169
+  },
+  {
+    "code": "P01260012069",
+    "catId": 169
+  },
+  {
+    "code": "P01260030131",
+    "catId": 133
+  },
+  {
+    "code": "P01260030147",
+    "catId": 133
+  },
+  {
+    "code": "P16260004045",
+    "catId": 169
+  },
+  {
+    "code": "P16260004060",
+    "catId": 169
+  },
+  {
+    "code": "P16260004075",
+    "catId": 169
+  },
+  {
+    "code": "P16260004090",
+    "catId": 169
+  },
+  {
+    "code": "P16260006094",
+    "catId": 169
+  },
+  {
+    "code": "P16260006104",
+    "catId": 169
+  },
+  {
+    "code": "P16260006114",
+    "catId": 169
+  },
+  {
+    "code": "P16260006124",
+    "catId": 169
+  },
+  {
+    "code": "P02260016094",
+    "catId": 169
+  },
+  {
+    "code": "P02260016104",
+    "catId": 169
+  },
+  {
+    "code": "P02260016114",
+    "catId": 169
+  },
+  {
+    "code": "P02260016124",
+    "catId": 169
+  },
+  {
+    "code": "P07260022044",
+    "catId": 154
+  },
+  {
+    "code": "P14250099731",
+    "catId": 106
+  },
+  {
+    "code": "P14250099732",
+    "catId": 106
+  },
+  {
+    "code": "P14250099733",
+    "catId": 106
+  },
+  {
+    "code": "P14250099734",
+    "catId": 106
+  },
+  {
+    "code": "P14250099735",
+    "catId": 106
+  },
+  {
+    "code": "P16260001001",
+    "catId": 101
+  },
+  {
+    "code": "P16260001002",
+    "catId": 101
+  },
+  {
+    "code": "P16260001003",
+    "catId": 101
+  },
+  {
+    "code": "P16260001004",
+    "catId": 101
+  },
+  {
+    "code": "P16260001000",
+    "catId": 101
+  },
+  {
+    "code": "P16260002101",
+    "catId": 367
+  },
+  {
+    "code": "P16260002102",
+    "catId": 367
+  },
+  {
+    "code": "P16260002103",
+    "catId": 367
+  },
+  {
+    "code": "P16260002104",
+    "catId": 367
+  },
+  {
+    "code": "P16260002201",
+    "catId": 367
+  },
+  {
+    "code": "P16260003120",
+    "catId": 97
+  },
+  {
+    "code": "P16260003160",
+    "catId": 97
+  },
+  {
+    "code": "P162600031200",
+    "catId": 97
+  },
+  {
+    "code": "P16260004000",
+    "catId": 206
+  },
+  {
+    "code": "P11260006000",
+    "catId": 104
+  },
+  {
+    "code": "L12260001201",
+    "catId": 101
+  },
+  {
+    "code": "L12260001202",
+    "catId": 101
+  },
+  {
+    "code": "L12260001203",
+    "catId": 101
+  },
+  {
+    "code": "L12260001204",
+    "catId": 101
+  },
+  {
+    "code": "L12260001101",
+    "catId": 101
+  },
+  {
+    "code": "L12260002101",
+    "catId": 367
+  },
+  {
+    "code": "L12260002102",
+    "catId": 367
+  },
+  {
+    "code": "L12260002103",
+    "catId": 367
+  },
+  {
+    "code": "L12260002104",
+    "catId": 367
+  },
+  {
+    "code": "L12260002201",
+    "catId": 367
+  },
+  {
+    "code": "L14269002000",
+    "catId": 206
+  },
+  {
+    "code": "P06260010590",
+    "catId": 377
+  },
+  {
+    "code": "P06260010660",
+    "catId": 377
+  },
+  {
+    "code": "P06260010730",
+    "catId": 377
+  },
+  {
+    "code": "P06260010800",
+    "catId": 377
+  },
+  {
+    "code": "P06260010940",
+    "catId": 377
+  },
+  {
+    "code": "P06260010101",
+    "catId": 377
+  },
+  {
+    "code": "P06260010870",
+    "catId": 377
+  },
+  {
+    "code": "P06260011560",
+    "catId": 377
+  },
+  {
+    "code": "P06260011640",
+    "catId": 377
+  },
+  {
+    "code": "P06260011720",
+    "catId": 377
+  },
+  {
+    "code": "P06260011820",
+    "catId": 377
+  },
+  {
+    "code": "P06260011920",
+    "catId": 377
+  },
+  {
+    "code": "P06260011102",
+    "catId": 377
+  },
+  {
+    "code": "",
+    "catId": 377
+  },
+  {
+    "code": "",
+    "catId": 377
+  },
+  {
+    "code": "CHASE_DW_R_DOWNWIND_RACING",
+    "catId": 365
+  },
+  {
+    "code": "",
+    "catId": 213
+  },
+  {
+    "code": "P13240099003",
+    "catId": 245
+  },
+  {
+    "code": "P07260021112",
+    "catId": 154
+  },
+  {
+    "code": "P08260002030",
+    "catId": 364
+  },
+  {
+    "code": "P08260002036",
+    "catId": 364
+  },
+  {
+    "code": "P08260002042",
+    "catId": 364
+  },
+  {
+    "code": "P08260002048",
+    "catId": 364
+  },
+  {
+    "code": "P08260002054",
+    "catId": 364
+  },
+  {
+    "code": "P08260002060",
+    "catId": 364
+  },
+  {
+    "code": "P08260002066",
+    "catId": 364
+  },
+  {
+    "code": "LISA_BOOM_GRIP",
+    "catId": 106
+  },
+  {
+    "code": "PATRIK_RACE_LA:GEN2",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_SLALOM_X",
+    "catId": 133
+  },
+  {
+    "code": "PATRIK_RACE_MA_GEN2",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_RACE_HA_GEN2",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_RIDE_MA_GEN2",
+    "catId": 154
+  },
+  {
+    "code": "P07260023038",
+    "catId": 154
+  },
+  {
+    "code": "P07260023050",
+    "catId": 154
+  },
+  {
+    "code": "P07260023056",
+    "catId": 154
+  },
+  {
+    "code": "P07260023062",
+    "catId": 154
+  },
+  {
+    "code": "P07260023068",
+    "catId": 154
+  },
+  {
+    "code": "P07260023074",
+    "catId": 154
+  },
+  {
+    "code": "P07260023080",
+    "catId": 154
+  },
+  {
+    "code": "P07260023085",
+    "catId": 154
+  },
+  {
+    "code": "P07260023100",
+    "catId": 154
+  },
+  {
+    "code": "P01170099095",
+    "catId": 133
+  },
+  {
+    "code": "P01170099125",
+    "catId": 133
+  },
+  {
+    "code": "P01180093009",
+    "catId": 136
+  },
+  {
+    "code": "P01180095006",
+    "catId": 133
+  },
+  {
+    "code": "P01180095012",
+    "catId": 133
+  },
+  {
+    "code": "P01180096011",
+    "catId": 133
+  },
+  {
+    "code": "P01180096017",
+    "catId": 133
+  },
+  {
+    "code": "P01180096018",
+    "catId": 133
+  },
+  {
+    "code": "P01180096027",
+    "catId": 133
+  },
+  {
+    "code": "P01180098100",
+    "catId": 133
+  },
+  {
+    "code": "P01180098110",
+    "catId": 133
+  },
+  {
+    "code": "P01180098115",
+    "catId": 133
+  },
+  {
+    "code": "P01180098122",
+    "catId": 133
+  },
+  {
+    "code": "P01180099087",
+    "catId": 133
+  },
+  {
+    "code": "P01190099039",
+    "catId": 133
+  },
+  {
+    "code": "P01200001093",
+    "catId": 136
+  },
+  {
+    "code": "P01200006140",
+    "catId": 133
+  },
+  {
+    "code": "P01200008095",
+    "catId": 133
+  },
+  {
+    "code": "P02190097140",
+    "catId": 133
+  },
+  {
+    "code": "P02230004059",
+    "catId": 396
+  },
+  {
+    "code": "P02230004066",
+    "catId": 396
+  },
+  {
+    "code": "P01160099128",
+    "catId": 133
+  },
+  {
+    "code": "P01180098128",
+    "catId": 133
+  },
+  {
+    "code": "P01200001083",
+    "catId": 136
+  },
+  {
+    "code": "P02200099091",
+    "catId": 133
+  },
+  {
+    "code": "P14259002016",
+    "catId": 166
+  },
+  {
+    "code": "P14259002017",
+    "catId": 166
+  },
+  {
+    "code": "PATRIK_FOIL_RACE",
+    "catId": 396
+  },
+  {
+    "code": "PATRIK_RACE_SF",
+    "catId": 154
+  },
+  {
+    "code": "PATRIK_TRAILER_WAVE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_CAMPELLO_WAVE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_WAVE_ONE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_T_WAVE",
+    "catId": 136
+  },
+  {
+    "code": "PATRIK_F_STYLE",
+    "catId": 136
+  },
+  {
+    "code": "TESTPNV678",
+    "catId": 213
+  }
+]

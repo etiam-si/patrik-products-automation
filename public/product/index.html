@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,24 +115,36 @@
 
     /* Main table header styling */
     .col-expand {
-      width: 40px; /* Fixed width for expand icon */
+      width: 40px;
+      /* Fixed width for expand icon */
       padding-left: 0.5rem;
       padding-right: 0.5rem;
     }
+
     .col-code {
       width: 15%;
-      min-width: 100px; /* Ensure it doesn't get too small */
+      min-width: 100px;
+      /* Ensure it doesn't get too small */
     }
+
     .col-product-name {
       width: 40%;
       min-width: 200px;
     }
+
     .col-categories {
       width: 35%;
       min-width: 150px;
     }
+
+    .col-tris-category {
+      width: 20%;
+      min-width: 120px;
+    }
+
     #productsTable th:not(.col-expand):not(.col-code):not(.col-product-name):not(.col-categories) {
-        width: auto; /* Let other dynamic columns take remaining space */
+      width: auto;
+      /* Let other dynamic columns take remaining space */
     }
 
     tbody tr {
@@ -216,22 +229,27 @@
 
     /* Child table specific column widths */
     .child-table .col-image {
-      width: 70px; /* For 50px image + padding */
+      width: 70px;
+      /* For 50px image + padding */
       padding-left: 0.5rem;
       padding-right: 0.5rem;
     }
+
     .child-table .col-code {
       width: 20%;
       min-width: 100px;
     }
+
     .child-table .col-ean-code {
       width: 25%;
       min-width: 120px;
     }
+
     .child-table .col-product-name {
       width: 55%;
       min-width: 200px;
     }
+
     .image-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -303,6 +321,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="logo-container">
@@ -331,8 +350,14 @@
       const tableBody = document.querySelector('#productsTable tbody');
       const searchInput = document.getElementById('searchInput');
       let productsData = [];
-      // Define a smaller, fixed set of headers for the main view
-      const mainHeaders = ['code', 'product_name', 'categories'];
+      // Define main headers with custom display names.
+      const mainHeaderConfig = {
+        'code': 'Code',
+        'product_name': 'Product Name',
+        'categories': 'Categories',
+        'tris_category_name': 'TRIS Category (AI)'
+      };
+      const mainHeaders = Object.keys(mainHeaderConfig);
       let allHeaders = [];
 
       // Fetch and display products
@@ -394,7 +419,7 @@
       // Generate table headers dynamically from the first product's keys
       function generateHeaders() {
         if (productsData.length > 0) {
-            allHeaders = Object.keys(productsData[0]);
+          allHeaders = Object.keys(productsData[0]);
         }
         const headerRow = document.createElement('tr');
         headerRow.innerHTML = `<th class="col-expand"></th>` +
@@ -403,7 +428,8 @@
             if (header === 'code') className = 'col-code';
             if (header === 'product_name') className = 'col-product-name';
             if (header === 'categories') className = 'col-categories';
-            return `<th class="${className}">${header.replace(/_/g, ' ')}</th>`;
+            if (header === 'tris_category_name') className = 'col-tris-category';
+            return `<th class="${className}">${mainHeaderConfig[header]}</th>`;
           }).join('');
         tableHead.appendChild(headerRow);
       }
@@ -442,29 +468,29 @@
 
             let childHTML = '<div class="child-content">';
 
-            // Other Product Details
-            const detailHeaders = allHeaders.filter(h => !mainHeaders.includes(h) && h !== 'child_products' && h !== 'images');
+            // All product properties (except those with special sections like child products/images) will be displayed here.
+            const detailHeaders = allHeaders.filter(h => h !== 'child_products' && h !== 'images');
             if (detailHeaders.length > 0) {
-                childHTML += '<h3>Product Details</h3>';
-                childHTML += '<dl class="details-grid">';
-                detailHeaders.forEach(header => {
-                    let value = product[header];
-                    let cellClass = '';
-                    if (typeof value === 'boolean') {
-                        cellClass = value ? 'boolean-true' : 'boolean-false';
-                        value = value ? 'Yes' : 'No';
-                    } else if (Array.isArray(value)) {
-                        value = value.join(', ');
-                    } else if (header.includes('description') && value) {
-                        cellClass = 'description-cell';
-                        const decodedValue = decodeHtmlEntities(value); // Decode HTML entities
-                        value = `<div>${decodedValue}</div>`;
-                    }
+              childHTML += '<h3>Product Details</h3>';
+              childHTML += '<dl class="details-grid">';
+              detailHeaders.forEach(header => {
+                let value = product[header];
+                let cellClass = '';
+                if (typeof value === 'boolean') {
+                  cellClass = value ? 'boolean-true' : 'boolean-false';
+                  value = value ? 'Yes' : 'No';
+                } else if (Array.isArray(value)) {
+                  value = value.join(', ');
+                } else if (header.includes('description') && value) {
+                  cellClass = 'description-cell';
+                  const decodedValue = decodeHtmlEntities(value); // Decode HTML entities
+                  value = `<div>${decodedValue}</div>`;
+                }
 
-                    childHTML += `<dt>${header.replace(/_/g, ' ')}</dt>`;
-                    childHTML += `<dd class="${cellClass}">${value || '—'}</dd>`;
-                });
-                childHTML += '</dl>';
+                childHTML += `<dt>${header.replace(/_/g, ' ')}</dt>`;
+                childHTML += `<dd class="${cellClass}">${value || '—'}</dd>`;
+              });
+              childHTML += '</dl>';
             }
 
             // Child products table
@@ -484,11 +510,11 @@
               childHTML += '</tr></thead><tbody>';
               product.child_products.forEach(child => {
                 childHTML += '<tr>';
-                
+
                 // Image cell
                 const imageUrl = (child.images && child.images.length > 0) ? child.images[0] : '';
                 childHTML += `<td>${imageUrl ? `<a href="${imageUrl}" target="_blank"><img src="${imageUrl}" loading="lazy" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;"></a>` : ''}</td>`;
-                
+
                 // Other cells
                 childHTML += `<td>${child.code || '—'}</td>`;
                 childHTML += `<td>${child.ean_code || '—'}</td>`;
