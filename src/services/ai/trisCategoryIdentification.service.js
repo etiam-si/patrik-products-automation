@@ -113,4 +113,43 @@ async function identifyProductsTrisCategories() {
     }
 }
 
-module.exports = { identifyProductsTrisCategories };
+/**
+ * Finds the category name for a given ID from the main category list.
+ * This is a synchronous helper function as `trisCategories.json` is loaded once at the start.
+ *
+ * @param {number} id The ID of the category to find.
+ * @returns {string|null} The name of the category if found, otherwise null.
+ */
+function getCategoryNameById(id) {
+    if (!categories || !Array.isArray(categories.items)) {
+        console.error("Main category data (trisCategories.json) is not loaded or invalid.");
+        return null;
+    }
+    const category = categories.items.find(item => item.id === id);
+    return category ? category.name : null;
+}
+
+/**
+ * Retrieves the category name for a specific product code by looking up its identified category.
+ *
+ * @param {string} productCode The product code to look up.
+ * @returns {Promise<string|null>} A promise that resolves to the category name, or null if not found.
+ */
+async function getCategoryNameForProductCode(productCode) {
+    const dataDir = process.env.DATA_PATH || path.join(__dirname, '..', '..', '..', 'data');
+    const categoriesPath = path.join(dataDir, 'tris', 'productCategories.json');
+
+    try {
+        const identifiedData = await fs.readFile(categoriesPath, 'utf-8');
+        const identifiedCategories = JSON.parse(identifiedData);
+
+        const productInfo = identifiedCategories.find(p => p.code === productCode);
+
+        return productInfo ? getCategoryNameById(productInfo.catId) : null;
+    } catch (error) {
+        console.error(`Could not get category for product code "${productCode}": ${error.message}`);
+        return null;
+    }
+}
+
+module.exports = { identifyProductsTrisCategories, getCategoryNameForProductCode };

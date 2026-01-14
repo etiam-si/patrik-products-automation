@@ -62,29 +62,44 @@ const getUniqueParentProductCodes = (products) => {
 /**
  * Maps a single product object from its CSV structure to a JSON object based on the provided mapping.
  * @param {Object} product - The product object from the parsed CSV.
- * @param {Array<Object>} columnMapping - The mapping configuration.
- * @returns {Object} The mapped product as a JSON object.
+ * @param {Array<Object>} columnMapping - The mapping configuration for transformations.
+ * @returns {Promise<Object>} A promise that resolves to the mapped product as a JSON object.
  */
-const mapProduct = (product, columnMapping) => {
+const mapProduct = async (product, columnMapping) => {
     const productJson = {};
     for (const mapping of columnMapping) {
         // Handle direct mapping: one csvHeader to one jsonKey
         if (mapping.csvHeader) {
             const { csvHeader, jsonKey, transform } = mapping;
             const value = product[csvHeader];
+
             if (transform && typeof transform === 'function') {
-                productJson[jsonKey] = transform(value);
+                // Pass the specific value and the entire product row to the transform function.
+                // Await the result in case the transform is async.
+                productJson[jsonKey] = await transform(value, product);
             } else {
                 productJson[jsonKey] = value;
             }
         }
         // Handle array mapping: multiple csvHeaders to one jsonKey as an array
         else if (mapping.csvHeaders) {
-            const { csvHeaders, jsonKey } = mapping;
+            const { csvHeaders, jsonKey, transform } = mapping;
             const values = csvHeaders
                 .map(header => product[header])
                 .filter(value => value !== undefined && value !== ''); // Filter out empty/undefined values
-            productJson[jsonKey] = values;
+
+            if (transform && typeof transform === 'function') {
+                productJson[jsonKey] = await transform(values, product);
+            } else {
+                productJson[jsonKey] = values;
+            }
+        }
+        // Handle generated fields: no csvHeader, just a transform to create a value
+        else if (mapping.jsonKey && mapping.transform) {
+            const { jsonKey, transform } = mapping;
+            // The first argument is `undefined` as there's no source CSV value.
+            // The transform function relies on the second argument, the full product row.
+            productJson[jsonKey] = await transform(undefined, product);
         }
     }
     return productJson;
@@ -106,28 +121,28 @@ const productsToJson = async (columnMapping = productMapping) => {
         const productCodeColumn = 'Code';
 
         // Group all child products by their parent's code
-        const childrenByParentCode = allProducts.reduce((acc, product) => {
+        const childrenByParentCode = {};
+        for (const product of allProducts) {
             const parentCode = product[parentProductCodeColumn];
             if (parentCode) {
-                if (!acc[parentCode]) {
-                    acc[parentCode] = [];
+                if (!childrenByParentCode[parentCode]) {
+                    childrenByParentCode[parentCode] = [];
                 }
-                acc[parentCode].push(mapProduct(product, columnMapping));
+                childrenByParentCode[parentCode].push(await mapProduct(product, columnMapping));
             }
-            return acc;
-        }, {});
+        }
 
         // Find parent products and attach their children
-        const parentProductsData = allProducts.reduce((acc, product) => {
+        const parentProductsData = [];
+        for (const product of allProducts) {
             // Process only products that are not children themselves.
             if (!product[parentProductCodeColumn]) {
-                const mappedProduct = mapProduct(product, columnMapping);
+                const mappedProduct = await mapProduct(product, columnMapping);
                 // Attach children if any exist for this product.
                 mappedProduct.child_products = childrenByParentCode[product[productCodeColumn]] || [];
-                acc.push(mappedProduct);
+                parentProductsData.push(mappedProduct);
             }
-            return acc;
-        }, []);
+        }
 
         const pnvDataDir = path.resolve(process.env.DATA_PATH || path.join(__dirname, '..', '..', '..', 'data'), 'pnv');
         const jsonFilePath = path.join(pnvDataDir, 'products.json');
