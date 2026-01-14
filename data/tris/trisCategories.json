@@ -1,0 +1,755 @@
+{
+    "identifier": "id",
+    "items": [
+        {
+            "id": 86,
+            "label": "Katalog",
+            "name": "Katalog"
+        },
+        {
+            "id": 89,
+            "label": "Katalog / Windsurf",
+            "name": "Katalog / Windsurf"
+        },
+        {
+            "id": 90,
+            "label": "Katalog / Windsurf / Deske",
+            "name": "Katalog / Windsurf / Deske"
+        },
+        {
+            "id": 133,
+            "label": "Katalog / Windsurf / Deske / Slalom/freeride",
+            "name": "Katalog / Windsurf / Deske / Slalom/freeride"
+        },
+        {
+            "id": 136,
+            "label": "Katalog / Windsurf / Deske / Freestyle/wave",
+            "name": "Katalog / Windsurf / Deske / Freestyle/wave"
+        },
+        {
+            "id": 396,
+            "label": "Katalog / Windsurf / Deske / Foil",
+            "name": "Katalog / Windsurf / Deske / Foil"
+        },
+        {
+            "id": 91,
+            "label": "Katalog / Windsurf / Deske / Začetniške/otroške",
+            "name": "Katalog / Windsurf / Deske / Začetniške/otroške"
+        },
+        {
+            "id": 93,
+            "label": "Katalog / Windsurf / Jadra",
+            "name": "Katalog / Windsurf / Jadra"
+        },
+        {
+            "id": 154,
+            "label": "Katalog / Windsurf / Jadra / Slalom/freeride",
+            "name": "Katalog / Windsurf / Jadra / Slalom/freeride"
+        },
+        {
+            "id": 155,
+            "label": "Katalog / Windsurf / Jadra / Freestyle/wave",
+            "name": "Katalog / Windsurf / Jadra / Freestyle/wave"
+        },
+        {
+            "id": 156,
+            "label": "Katalog / Windsurf / Jadra / Začetniška/otroška",
+            "name": "Katalog / Windsurf / Jadra / Začetniška/otroška"
+        },
+        {
+            "id": 157,
+            "label": "Katalog / Windsurf / Jadra / Kompleti",
+            "name": "Katalog / Windsurf / Jadra / Kompleti"
+        },
+        {
+            "id": 94,
+            "label": "Katalog / Windsurf / Jambori",
+            "name": "Katalog / Windsurf / Jambori"
+        },
+        {
+            "id": 159,
+            "label": "Katalog / Windsurf / Jambori / SDM",
+            "name": "Katalog / Windsurf / Jambori / SDM"
+        },
+        {
+            "id": 158,
+            "label": "Katalog / Windsurf / Jambori / RDM",
+            "name": "Katalog / Windsurf / Jambori / RDM"
+        },
+        {
+            "id": 101,
+            "label": "Katalog / Windsurf / Zanke za trapez",
+            "name": "Katalog / Windsurf / Zanke za trapez"
+        },
+        {
+            "id": 97,
+            "label": "Katalog / Windsurf / Loki",
+            "name": "Katalog / Windsurf / Loki"
+        },
+        {
+            "id": 168,
+            "label": "Katalog / Windsurf / Loki / Alu loki",
+            "name": "Katalog / Windsurf / Loki / Alu loki"
+        },
+        {
+            "id": 167,
+            "label": "Katalog / Windsurf / Loki / Karbonski loki",
+            "name": "Katalog / Windsurf / Loki / Karbonski loki"
+        },
+        {
+            "id": 166,
+            "label": "Katalog / Windsurf / Loki / Ostalo",
+            "name": "Katalog / Windsurf / Loki / Ostalo"
+        },
+        {
+            "id": 104,
+            "label": "Katalog / Windsurf / Podaljški",
+            "name": "Katalog / Windsurf / Podaljški"
+        },
+        {
+            "id": 173,
+            "label": "Katalog / Windsurf / Podaljški / RDM podaljški",
+            "name": "Katalog / Windsurf / Podaljški / RDM podaljški"
+        },
+        {
+            "id": 172,
+            "label": "Katalog / Windsurf / Podaljški / SDM podaljški",
+            "name": "Katalog / Windsurf / Podaljški / SDM podaljški"
+        },
+        {
+            "id": 174,
+            "label": "Katalog / Windsurf / Podaljški / Ostalo",
+            "name": "Katalog / Windsurf / Podaljški / Ostalo"
+        },
+        {
+            "id": 105,
+            "label": "Katalog / Windsurf / Smerniki",
+            "name": "Katalog / Windsurf / Smerniki"
+        },
+        {
+            "id": 169,
+            "label": "Katalog / Windsurf / Smerniki / Slalom/freeride",
+            "name": "Katalog / Windsurf / Smerniki / Slalom/freeride"
+        },
+        {
+            "id": 357,
+            "label": "Katalog / Windsurf / Smerniki / Slalom/freeride / Power Box - PB",
+            "name": "Katalog / Windsurf / Smerniki / Slalom/freeride / Power Box - PB"
+        },
+        {
+            "id": 358,
+            "label": "Katalog / Windsurf / Smerniki / Slalom/freeride / Tuttle box - TT",
+            "name": "Katalog / Windsurf / Smerniki / Slalom/freeride / Tuttle box - TT"
+        },
+        {
+            "id": 359,
+            "label": "Katalog / Windsurf / Smerniki / Slalom/freeride / Deep tuttle box - DTT",
+            "name": "Katalog / Windsurf / Smerniki / Slalom/freeride / Deep tuttle box - DTT"
+        },
+        {
+            "id": 170,
+            "label": "Katalog / Windsurf / Smerniki / Freestyle/wave",
+            "name": "Katalog / Windsurf / Smerniki / Freestyle/wave"
+        },
+        {
+            "id": 360,
+            "label": "Katalog / Windsurf / Smerniki / Freestyle/wave / Power Box - PB",
+            "name": "Katalog / Windsurf / Smerniki / Freestyle/wave / Power Box - PB"
+        },
+        {
+            "id": 361,
+            "label": "Katalog / Windsurf / Smerniki / Freestyle/wave / Nuss Box",
+            "name": "Katalog / Windsurf / Smerniki / Freestyle/wave / Nuss Box"
+        },
+        {
+            "id": 362,
+            "label": "Katalog / Windsurf / Smerniki / Freestyle/wave / US Box",
+            "name": "Katalog / Windsurf / Smerniki / Freestyle/wave / US Box"
+        },
+        {
+            "id": 171,
+            "label": "Katalog / Windsurf / Smerniki / Ostali",
+            "name": "Katalog / Windsurf / Smerniki / Ostali"
+        },
+        {
+            "id": 206,
+            "label": "Katalog / Windsurf / Vrvi in napenjalci",
+            "name": "Katalog / Windsurf / Vrvi in napenjalci"
+        },
+        {
+            "id": 99,
+            "label": "Katalog / Windsurf / Zglobi",
+            "name": "Katalog / Windsurf / Zglobi"
+        },
+        {
+            "id": 356,
+            "label": "Katalog / Windsurf / Zglobi / Zglobi",
+            "name": "Katalog / Windsurf / Zglobi / Zglobi"
+        },
+        {
+            "id": 355,
+            "label": "Katalog / Windsurf / Zglobi / Rezervni deli",
+            "name": "Katalog / Windsurf / Zglobi / Rezervni deli"
+        },
+        {
+            "id": 100,
+            "label": "Katalog / Windsurf / Trapezi",
+            "name": "Katalog / Windsurf / Trapezi"
+        },
+        {
+            "id": 176,
+            "label": "Katalog / Windsurf / Trapezi / Sedeči",
+            "name": "Katalog / Windsurf / Trapezi / Sedeči"
+        },
+        {
+            "id": 175,
+            "label": "Katalog / Windsurf / Trapezi / Ledveni",
+            "name": "Katalog / Windsurf / Trapezi / Ledveni"
+        },
+        {
+            "id": 363,
+            "label": "Katalog / Windsurf / Trapezi / Trapezne kljuke",
+            "name": "Katalog / Windsurf / Trapezi / Trapezne kljuke"
+        },
+        {
+            "id": 102,
+            "label": "Katalog / Windsurf / Torbe",
+            "name": "Katalog / Windsurf / Torbe"
+        },
+        {
+            "id": 177,
+            "label": "Katalog / Windsurf / Torbe / Za deske",
+            "name": "Katalog / Windsurf / Torbe / Za deske"
+        },
+        {
+            "id": 178,
+            "label": "Katalog / Windsurf / Torbe / Za jamborje",
+            "name": "Katalog / Windsurf / Torbe / Za jamborje"
+        },
+        {
+            "id": 244,
+            "label": "Katalog / Windsurf / Torbe / Za rige",
+            "name": "Katalog / Windsurf / Torbe / Za rige"
+        },
+        {
+            "id": 402,
+            "label": "Katalog / Windsurf / Torbe / Deska in rig",
+            "name": "Katalog / Windsurf / Torbe / Deska in rig"
+        },
+        {
+            "id": 245,
+            "label": "Katalog / Windsurf / Torbe / Za foil",
+            "name": "Katalog / Windsurf / Torbe / Za foil"
+        },
+        {
+            "id": 179,
+            "label": "Katalog / Windsurf / Torbe / Ostalo",
+            "name": "Katalog / Windsurf / Torbe / Ostalo"
+        },
+        {
+            "id": 207,
+            "label": "Katalog / Windsurf / Zanke za noge",
+            "name": "Katalog / Windsurf / Zanke za noge"
+        },
+        {
+            "id": 103,
+            "label": "Katalog / Windsurf / Zaščita opreme",
+            "name": "Katalog / Windsurf / Zaščita opreme"
+        },
+        {
+            "id": 389,
+            "label": "Katalog / Windsurf / Seti za popravilo opreme",
+            "name": "Katalog / Windsurf / Seti za popravilo opreme"
+        },
+        {
+            "id": 106,
+            "label": "Katalog / Windsurf / Ostala oprema",
+            "name": "Katalog / Windsurf / Ostala oprema"
+        },
+        {
+            "id": 269,
+            "label": "Katalog / Wing",
+            "name": "Katalog / Wing"
+        },
+        {
+            "id": 364,
+            "label": "Katalog / Wing / Wing",
+            "name": "Katalog / Wing / Wing"
+        },
+        {
+            "id": 365,
+            "label": "Katalog / Wing / Deske",
+            "name": "Katalog / Wing / Deske"
+        },
+        {
+            "id": 366,
+            "label": "Katalog / Wing / Hidrofoil komplet",
+            "name": "Katalog / Wing / Hidrofoil komplet"
+        },
+        {
+            "id": 371,
+            "label": "Katalog / Wing / Hidrofoil komplet / Karbonski",
+            "name": "Katalog / Wing / Hidrofoil komplet / Karbonski"
+        },
+        {
+            "id": 370,
+            "label": "Katalog / Wing / Hidrofoil komplet / FCT + alu foil",
+            "name": "Katalog / Wing / Hidrofoil komplet / FCT + alu foil"
+        },
+        {
+            "id": 372,
+            "label": "Katalog / Wing / Hidrofoil posamezni elementi",
+            "name": "Katalog / Wing / Hidrofoil posamezni elementi"
+        },
+        {
+            "id": 373,
+            "label": "Katalog / Wing / Hidrofoil posamezni elementi / Sprednja krila",
+            "name": "Katalog / Wing / Hidrofoil posamezni elementi / Sprednja krila"
+        },
+        {
+            "id": 374,
+            "label": "Katalog / Wing / Hidrofoil posamezni elementi / Zadnja krila",
+            "name": "Katalog / Wing / Hidrofoil posamezni elementi / Zadnja krila"
+        },
+        {
+            "id": 375,
+            "label": "Katalog / Wing / Hidrofoil posamezni elementi / Trup",
+            "name": "Katalog / Wing / Hidrofoil posamezni elementi / Trup"
+        },
+        {
+            "id": 376,
+            "label": "Katalog / Wing / Hidrofoil posamezni elementi / Jambor",
+            "name": "Katalog / Wing / Hidrofoil posamezni elementi / Jambor"
+        },
+        {
+            "id": 367,
+            "label": "Katalog / Wing / Zanke in Leash-i",
+            "name": "Katalog / Wing / Zanke in Leash-i"
+        },
+        {
+            "id": 369,
+            "label": "Katalog / Wing / Torbe",
+            "name": "Katalog / Wing / Torbe"
+        },
+        {
+            "id": 331,
+            "label": "Katalog / Wing / Pumpe",
+            "name": "Katalog / Wing / Pumpe"
+        },
+        {
+            "id": 88,
+            "label": "Katalog / Foil",
+            "name": "Katalog / Foil"
+        },
+        {
+            "id": 197,
+            "label": "Katalog / Foil / Foil",
+            "name": "Katalog / Foil / Foil"
+        },
+        {
+            "id": 198,
+            "label": "Katalog / Foil / Posamezne komponente",
+            "name": "Katalog / Foil / Posamezne komponente"
+        },
+        {
+            "id": 377,
+            "label": "Katalog / Foil / Posamezne komponente / Sprednja krila",
+            "name": "Katalog / Foil / Posamezne komponente / Sprednja krila"
+        },
+        {
+            "id": 378,
+            "label": "Katalog / Foil / Posamezne komponente / Zadnja krila",
+            "name": "Katalog / Foil / Posamezne komponente / Zadnja krila"
+        },
+        {
+            "id": 379,
+            "label": "Katalog / Foil / Posamezne komponente / Trup",
+            "name": "Katalog / Foil / Posamezne komponente / Trup"
+        },
+        {
+            "id": 380,
+            "label": "Katalog / Foil / Posamezne komponente / Jambor",
+            "name": "Katalog / Foil / Posamezne komponente / Jambor"
+        },
+        {
+            "id": 381,
+            "label": "Katalog / Foil / Posamezne komponente / Ostalo",
+            "name": "Katalog / Foil / Posamezne komponente / Ostalo"
+        },
+        {
+            "id": 220,
+            "label": "Katalog / Foil / Foil info",
+            "name": "Katalog / Foil / Foil info"
+        },
+        {
+            "id": 246,
+            "label": "Katalog / Foil / Torbe",
+            "name": "Katalog / Foil / Torbe"
+        },
+        {
+            "id": 92,
+            "label": "Katalog / SUP",
+            "name": "Katalog / SUP"
+        },
+        {
+            "id": 150,
+            "label": "Katalog / SUP / Kompleti",
+            "name": "Katalog / SUP / Kompleti"
+        },
+        {
+            "id": 151,
+            "label": "Katalog / SUP / Vesla",
+            "name": "Katalog / SUP / Vesla"
+        },
+        {
+            "id": 152,
+            "label": "Katalog / SUP / Najem",
+            "name": "Katalog / SUP / Najem"
+        },
+        {
+            "id": 153,
+            "label": "Katalog / SUP / Ostala oprema",
+            "name": "Katalog / SUP / Ostala oprema"
+        },
+        {
+            "id": 296,
+            "label": "Katalog / Kite",
+            "name": "Katalog / Kite"
+        },
+        {
+            "id": 299,
+            "label": "Katalog / Kite / Kitei",
+            "name": "Katalog / Kite / Kitei"
+        },
+        {
+            "id": 308,
+            "label": "Katalog / Kite / Bari",
+            "name": "Katalog / Kite / Bari"
+        },
+        {
+            "id": 310,
+            "label": "Katalog / Kite / Bari / Leashi",
+            "name": "Katalog / Kite / Bari / Leashi"
+        },
+        {
+            "id": 309,
+            "label": "Katalog / Kite / Bari / Vrvi",
+            "name": "Katalog / Kite / Bari / Vrvi"
+        },
+        {
+            "id": 311,
+            "label": "Katalog / Kite / Deske",
+            "name": "Katalog / Kite / Deske"
+        },
+        {
+            "id": 312,
+            "label": "Katalog / Kite / Deske / Twin Tip",
+            "name": "Katalog / Kite / Deske / Twin Tip"
+        },
+        {
+            "id": 313,
+            "label": "Katalog / Kite / Deske / Surf",
+            "name": "Katalog / Kite / Deske / Surf"
+        },
+        {
+            "id": 314,
+            "label": "Katalog / Kite / Deske / Zanke za noge & padsi",
+            "name": "Katalog / Kite / Deske / Zanke za noge & padsi"
+        },
+        {
+            "id": 321,
+            "label": "Katalog / Kite / Trapezi",
+            "name": "Katalog / Kite / Trapezi"
+        },
+        {
+            "id": 323,
+            "label": "Katalog / Kite / Trapezi / Sedeči",
+            "name": "Katalog / Kite / Trapezi / Sedeči"
+        },
+        {
+            "id": 322,
+            "label": "Katalog / Kite / Trapezi / Ledveni",
+            "name": "Katalog / Kite / Trapezi / Ledveni"
+        },
+        {
+            "id": 183,
+            "label": "Katalog / Kite / Kite torbe",
+            "name": "Katalog / Kite / Kite torbe"
+        },
+        {
+            "id": 107,
+            "label": "Katalog / Neopren",
+            "name": "Katalog / Neopren"
+        },
+        {
+            "id": 108,
+            "label": "Katalog / Neopren / Surf obleke",
+            "name": "Katalog / Neopren / Surf obleke"
+        },
+        {
+            "id": 199,
+            "label": "Katalog / Neopren / Surf obleke / Kratki rokavi",
+            "name": "Katalog / Neopren / Surf obleke / Kratki rokavi"
+        },
+        {
+            "id": 200,
+            "label": "Katalog / Neopren / Surf obleke / Dolgi rokavi",
+            "name": "Katalog / Neopren / Surf obleke / Dolgi rokavi"
+        },
+        {
+            "id": 202,
+            "label": "Katalog / Neopren / Surf obleke / Lycre",
+            "name": "Katalog / Neopren / Surf obleke / Lycre"
+        },
+        {
+            "id": 201,
+            "label": "Katalog / Neopren / Surf obleke / Podobleke",
+            "name": "Katalog / Neopren / Surf obleke / Podobleke"
+        },
+        {
+            "id": 203,
+            "label": "Katalog / Neopren / Surf obleke / Ostalo",
+            "name": "Katalog / Neopren / Surf obleke / Ostalo"
+        },
+        {
+            "id": 109,
+            "label": "Katalog / Neopren / Čevlji",
+            "name": "Katalog / Neopren / Čevlji"
+        },
+        {
+            "id": 305,
+            "label": "Katalog / Neopren / Čevlji / Visoki",
+            "name": "Katalog / Neopren / Čevlji / Visoki"
+        },
+        {
+            "id": 306,
+            "label": "Katalog / Neopren / Čevlji / Nizki",
+            "name": "Katalog / Neopren / Čevlji / Nizki"
+        },
+        {
+            "id": 110,
+            "label": "Katalog / Neopren / Kape",
+            "name": "Katalog / Neopren / Kape"
+        },
+        {
+            "id": 111,
+            "label": "Katalog / Neopren / Čelade",
+            "name": "Katalog / Neopren / Čelade"
+        },
+        {
+            "id": 112,
+            "label": "Katalog / Neopren / Rokavice",
+            "name": "Katalog / Neopren / Rokavice"
+        },
+        {
+            "id": 333,
+            "label": "Katalog / Neopren / Rokavice / Zimske",
+            "name": "Katalog / Neopren / Rokavice / Zimske"
+        },
+        {
+            "id": 332,
+            "label": "Katalog / Neopren / Rokavice / Letne",
+            "name": "Katalog / Neopren / Rokavice / Letne"
+        },
+        {
+            "id": 113,
+            "label": "Katalog / Neopren / Jopiči",
+            "name": "Katalog / Neopren / Jopiči"
+        },
+        {
+            "id": 384,
+            "label": "Katalog / Neopren / Jopiči / Zaščitni jopiči",
+            "name": "Katalog / Neopren / Jopiči / Zaščitni jopiči"
+        },
+        {
+            "id": 383,
+            "label": "Katalog / Neopren / Jopiči / Rešilni jopiči",
+            "name": "Katalog / Neopren / Jopiči / Rešilni jopiči"
+        },
+        {
+            "id": 205,
+            "label": "Katalog / Neopren / Seti za popravilo",
+            "name": "Katalog / Neopren / Seti za popravilo"
+        },
+        {
+            "id": 121,
+            "label": "Katalog / Oblačila",
+            "name": "Katalog / Oblačila"
+        },
+        {
+            "id": 210,
+            "label": "Katalog / Oblačila / Oblačila",
+            "name": "Katalog / Oblačila / Oblačila"
+        },
+        {
+            "id": 185,
+            "label": "Katalog / Oblačila / Oblačila / Majice",
+            "name": "Katalog / Oblačila / Oblačila / Majice"
+        },
+        {
+            "id": 122,
+            "label": "Katalog / Oblačila / Oblačila / Majice / Kratki rokavi",
+            "name": "Katalog / Oblačila / Oblačila / Majice / Kratki rokavi"
+        },
+        {
+            "id": 124,
+            "label": "Katalog / Oblačila / Oblačila / Majice / Dolgi rokavi",
+            "name": "Katalog / Oblačila / Oblačila / Majice / Dolgi rokavi"
+        },
+        {
+            "id": 353,
+            "label": "Katalog / Oblačila / Oblačila / Hlače",
+            "name": "Katalog / Oblačila / Oblačila / Hlače"
+        },
+        {
+            "id": 125,
+            "label": "Katalog / Oblačila / Oblačila / Puloverji",
+            "name": "Katalog / Oblačila / Oblačila / Puloverji"
+        },
+        {
+            "id": 117,
+            "label": "Katalog / Oblačila / Oblačila / Lycre",
+            "name": "Katalog / Oblačila / Oblačila / Lycre"
+        },
+        {
+            "id": 118,
+            "label": "Katalog / Oblačila / Oblačila / Kopalke",
+            "name": "Katalog / Oblačila / Oblačila / Kopalke"
+        },
+        {
+            "id": 295,
+            "label": "Katalog / Oblačila / Kape",
+            "name": "Katalog / Oblačila / Kape"
+        },
+        {
+            "id": 272,
+            "label": "Katalog / Oblačila / Kape / Kape s šiltom",
+            "name": "Katalog / Oblačila / Kape / Kape s šiltom"
+        },
+        {
+            "id": 294,
+            "label": "Katalog / Oblačila / Kape / Zimske kape",
+            "name": "Katalog / Oblačila / Kape / Zimske kape"
+        },
+        {
+            "id": 216,
+            "label": "Katalog / Oblačila / Pončo",
+            "name": "Katalog / Oblačila / Pončo"
+        },
+        {
+            "id": 271,
+            "label": "Katalog / Oblačila / Sončna očala",
+            "name": "Katalog / Oblačila / Sončna očala"
+        },
+        {
+            "id": 119,
+            "label": "Katalog / Oblačila / Nahrbtniki",
+            "name": "Katalog / Oblačila / Nahrbtniki"
+        },
+        {
+            "id": 120,
+            "label": "Katalog / Oblačila / Natikači",
+            "name": "Katalog / Oblačila / Natikači"
+        },
+        {
+            "id": 160,
+            "label": "Katalog / Recharge",
+            "name": "Katalog / Recharge"
+        },
+        {
+            "id": 350,
+            "label": "Katalog / Recharge / Jadra",
+            "name": "Katalog / Recharge / Jadra"
+        },
+        {
+            "id": 161,
+            "label": "Katalog / Recharge / Jambori",
+            "name": "Katalog / Recharge / Jambori"
+        },
+        {
+            "id": 165,
+            "label": "Katalog / Recharge / Jambori / SDM",
+            "name": "Katalog / Recharge / Jambori / SDM"
+        },
+        {
+            "id": 164,
+            "label": "Katalog / Recharge / Jambori / RDM",
+            "name": "Katalog / Recharge / Jambori / RDM"
+        },
+        {
+            "id": 162,
+            "label": "Katalog / Recharge / Foil",
+            "name": "Katalog / Recharge / Foil"
+        },
+        {
+            "id": 163,
+            "label": "Katalog / Recharge / Ostalo",
+            "name": "Katalog / Recharge / Ostalo"
+        },
+        {
+            "id": 297,
+            "label": "Katalog / Recharge / Balance Board",
+            "name": "Katalog / Recharge / Balance Board"
+        },
+        {
+            "id": 298,
+            "label": "Katalog / Recharge / Oblačila",
+            "name": "Katalog / Recharge / Oblačila"
+        },
+        {
+            "id": 238,
+            "label": "Katalog / Ostalo",
+            "name": "Katalog / Ostalo"
+        },
+        {
+            "id": 204,
+            "label": "Katalog / Ostalo / Kreme",
+            "name": "Katalog / Ostalo / Kreme"
+        },
+        {
+            "id": 115,
+            "label": "Katalog / Ostalo / Skejti",
+            "name": "Katalog / Ostalo / Skejti"
+        },
+        {
+            "id": 196,
+            "label": "Katalog / Ostalo / Zastave, nalepke, obeski",
+            "name": "Katalog / Ostalo / Zastave, nalepke, obeski"
+        },
+        {
+            "id": 193,
+            "label": "Katalog / Ostalo / Literatura in multimedija",
+            "name": "Katalog / Ostalo / Literatura in multimedija"
+        },
+        {
+            "id": 116,
+            "label": "Katalog / Ostalo / Kulinarika",
+            "name": "Katalog / Ostalo / Kulinarika"
+        },
+        {
+            "id": 194,
+            "label": "Katalog / Ostalo / Transport",
+            "name": "Katalog / Ostalo / Transport"
+        },
+        {
+            "id": 387,
+            "label": "Katalog / Ostalo / Varnost",
+            "name": "Katalog / Ostalo / Varnost"
+        },
+        {
+            "id": 213,
+            "label": "Katalog / Ostalo / Ostalo",
+            "name": "Katalog / Ostalo / Ostalo"
+        },
+        {
+            "id": 394,
+            "label": "Katalog / Rabljeno",
+            "name": "Katalog / Rabljeno"
+        },
+        {
+            "id": 127,
+            "label": "Storitve",
+            "name": "Storitve"
+        }
+    ]
+}

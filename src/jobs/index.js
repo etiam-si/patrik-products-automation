@@ -1,11 +1,13 @@
 const setupProductDownloadJob = require('./pnv/downloadProducts');
 const { downloadProducts } = require('../services/pnv/downloadProducts.service');
+const {identifyProductsTrisCategories} = require('../services/ai/trisCategoryIdentification.service');
 
 
 
-const initJobs = () => {
+const initJobs = async () => {
     console.log('--- Running setup jobs ---');
-    downloadProducts();
+    await downloadProducts();
+    await identifyProductsTrisCategories();
 
     console.log('--- Initializing all background jobs ---');
     setupProductDownloadJob();
