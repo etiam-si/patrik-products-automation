@@ -250,6 +250,11 @@
       min-width: 200px;
     }
 
+    .child-table .col-stock {
+      width: 10%;
+      min-width: 60px;
+    }
+
     .image-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -353,7 +358,7 @@
         'code': 'Code',
         'product_name': 'Product Name',
         'categories': 'Categories',
-        'tris_category_name': 'Cat. Recharge (AI generated)'
+        'tris_category_name': 'Cat. Recharge (AI generated)',
       };
       const mainHeaders = Object.keys(mainHeaderConfig);
       let allHeaders = [];
@@ -495,13 +500,14 @@
             if (product.child_products && product.child_products.length > 0) {
               childHTML += '<h3>Child Products</h3>';
               // Define specific headers for child products table
-              const childHeaders = ['image', 'code', 'ean_code', 'product_name'];
+              const childHeaders = ['image', 'code', 'ean_code', 'product_name', 'stock_amount'];
               childHTML += '<table class="child-table"><thead><tr>'; // Added class for child table
               childHeaders.forEach(ch => {
                 let className = '';
                 if (ch === 'image') className = 'col-image';
                 if (ch === 'code') className = 'col-code';
                 if (ch === 'ean_code') className = 'col-ean-code';
+                if (ch === 'stock_amount') className = 'col-stock';
                 if (ch === 'product_name') className = 'col-product-name';
                 childHTML += `<th class="${className}">${ch === 'image' ? '' : ch.replace(/_/g, ' ')}</th>`;
               });
@@ -517,6 +523,7 @@
                 childHTML += `<td>${child.code || '—'}</td>`;
                 childHTML += `<td>${child.ean_code || '—'}</td>`;
                 childHTML += `<td>${child.product_name || '—'}</td>`;
+                childHTML += `<td>${child.stock_amount !== undefined ? child.stock_amount : '—'}</td>`;
 
                 childHTML += '</tr>';
               });

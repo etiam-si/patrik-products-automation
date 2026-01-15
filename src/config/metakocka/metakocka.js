@@ -1,3 +1,5 @@
+const { application } = require("express");
+
 const isProduction = process.env.NODE_ENV === 'production';
 
 const baseApiUrl = isProduction
@@ -8,10 +10,20 @@ module.exports = {
     baseApiUrl,
     secretKey: process.env.METAKOCKA_KEY,
     companyId: process.env.METAKOCKA_ID,
+    products: {
+        api: {
+            productList: "/product_list",
+        }
+    },
     warehouse: {
         api: {
-            warehouseStock: "/warehouse_stock"
+            warehouseStock: "/warehouse_stock",
         },
         t4aMainWarehouseId: "626700000004",
     },
+    pricelist: {
+        active: [
+            "RRP 2026"
+        ]
+    }
 };
