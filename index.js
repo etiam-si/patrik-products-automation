@@ -16,6 +16,8 @@ dotenv.config({ path: path.join(envPath, '.env') });
 if (process.env.NODE_ENV === 'development') {
   dotenv.config({ path: path.resolve(envPath, '.env.development'), override: true });
 }
+console.log(`App Started (${process.env.NODE_ENV})`)
+
 const { app, initJobs } = require('./src/app');
 
 const PORT = process.env.PORT || 3000;
