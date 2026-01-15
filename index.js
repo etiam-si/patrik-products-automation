@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {
   // First, run initial setup jobs
-  await initJobs();
+  initJobs();
 
   // Then, start the server
   app.listen(PORT, () => {
