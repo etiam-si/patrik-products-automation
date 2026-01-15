@@ -7,9 +7,6 @@ const productRoutes = require('./routes/productRoutes');
 
 const initJobs = require("./jobs")
 
-// Start all scheduled tasks
-initJobs();
-
 // Global Middleware
 app.use(express.json());
 app.use(logger); 
@@ -26,4 +23,4 @@ app.get('/', (req, res) => {
     res.send('Automation API is running...');
 });
 
-module.exports = app;
+module.exports = { app, initJobs };

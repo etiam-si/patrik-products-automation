@@ -16,10 +16,18 @@ dotenv.config({ path: path.join(envPath, '.env') });
 if (process.env.NODE_ENV === 'development') {
   dotenv.config({ path: path.resolve(envPath, '.env.development'), override: true });
 }
-const app = require('./src/app');
+const { app, initJobs } = require('./src/app');
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+const startServer = async () => {
+  // First, run initial setup jobs
+  await initJobs();
+
+  // Then, start the server
+  app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-});
+  });
+}
+
+startServer();

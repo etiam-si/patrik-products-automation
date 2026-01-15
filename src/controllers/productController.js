@@ -36,3 +36,22 @@ exports.getAllProducts = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 };
+
+exports.getProductsAsTsv = async (req, res) => {
+    try {
+        const products = await getProductsData();
+
+        const header = 'Naziv\tKategorija\n';
+        // Map only parent products to TSV rows, excluding child products.
+        const tsvRows = products.map(p => 
+            `${p.product_name}\t${p.tris_category_name || ''}`
+        );
+        const tsv = header + tsvRows.join('\n');
+
+        res.header('Content-Type', 'text/tab-separated-values');
+        res.header('Content-Disposition', 'attachment; filename="products.tsv"');
+        res.send(tsv);
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
