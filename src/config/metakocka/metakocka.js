@@ -23,7 +23,7 @@ module.exports = {
     },
     pricelist: {
         active: [
-            "RRP 2026"
+            "RRP 2025", "RRP 2026"
         ]
     }
 };

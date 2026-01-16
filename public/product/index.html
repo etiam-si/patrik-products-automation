@@ -236,23 +236,28 @@
     }
 
     .child-table .col-code {
-      width: 20%;
+      width: 15%;
       min-width: 100px;
     }
 
     .child-table .col-ean-code {
-      width: 25%;
+      width: 15%;
       min-width: 120px;
     }
 
     .child-table .col-product-name {
-      width: 55%;
+      width: 40%;
       min-width: 200px;
     }
 
     .child-table .col-stock {
-      width: 10%;
+      width: 15%;
       min-width: 60px;
+    }
+
+    .child-table .col-price {
+      width: 15%;
+      min-width: 120px;
     }
 
     .image-gallery {
@@ -500,16 +505,18 @@
             if (product.child_products && product.child_products.length > 0) {
               childHTML += '<h3>Child Products</h3>';
               // Define specific headers for child products table
-              const childHeaders = ['image', 'code', 'ean_code', 'product_name', 'stock_amount'];
+              const childHeaders = ['image', 'code', 'ean_code', 'product_name', 'stock_amount', 'price'];
               childHTML += '<table class="child-table"><thead><tr>'; // Added class for child table
               childHeaders.forEach(ch => {
                 let className = '';
                 if (ch === 'image') className = 'col-image';
                 if (ch === 'code') className = 'col-code';
                 if (ch === 'ean_code') className = 'col-ean-code';
-                if (ch === 'stock_amount') className = 'col-stock';
+                if (ch === 'stock_amount') className = 'col-stock text-right';
+                if (ch === 'price') className = 'col-price text-right';
                 if (ch === 'product_name') className = 'col-product-name';
-                childHTML += `<th class="${className}">${ch === 'image' ? '' : ch.replace(/_/g, ' ')}</th>`;
+                const headerText = ch === 'image' ? '' : (ch === 'price' ? 'Price (EUR)' : ch.replace(/_/g, ' '));
+                childHTML += `<th class="${className}">${headerText}</th>`;
               });
               childHTML += '</tr></thead><tbody>';
               product.child_products.forEach(child => {
@@ -523,7 +530,15 @@
                 childHTML += `<td>${child.code || '—'}</td>`;
                 childHTML += `<td>${child.ean_code || '—'}</td>`;
                 childHTML += `<td>${child.product_name || '—'}</td>`;
-                childHTML += `<td>${child.stock_amount !== undefined ? child.stock_amount : '—'}</td>`;
+                childHTML += `<td class="text-right">${child.stock_amount !== undefined ? child.stock_amount : '—'}</td>`;
+
+                let pricesHTML = '—';
+                if (child.pricelist && child.pricelist.length > 0) {
+                  pricesHTML = child.pricelist.map(p =>
+                    `<span class="price-item" title="${p.name}">${p.price.toFixed(2)} €</span>`
+                  ).join('; ');
+                }
+                childHTML += `<td class="text-right">${pricesHTML}</td>`;
 
                 childHTML += '</tr>';
               });
