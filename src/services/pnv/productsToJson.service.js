@@ -1,5 +1,7 @@
 const { productMapping } = require("../../config/pnv/products")
 const { parse } = require('csv-parse');
+const { getProductPricelist } = require("../metakocka/price.service");
+const { getWarehouseStock, getProductStockAmount } = require("../metakocka/warehouse.service");
 const fs = require('fs');
 const path = require('path');
 
@@ -42,30 +44,13 @@ const parseProductsCsv = () => {
 };
 
 /**
- * Parses the products.csv file to extract unique values from the "Koda nadprodukta" column.
- * It then logs these unique values as a JSON array to the console.
- *
- * @param {Array<Object>} products - The array of product objects from the CSV.
- * @returns {Array<string>} An array of unique parent product codes.
- */
-const getUniqueParentProductCodes = (products) => {
-    const uniqueParentCodes = new Set();
-    const parentProductCodeColumn = 'Koda nadprodukta';
-    products.forEach(row => {
-        if (row[parentProductCodeColumn]) {
-            uniqueParentCodes.add(row[parentProductCodeColumn]);
-        }
-    });
-    return Array.from(uniqueParentCodes);
-};
-
-/**
  * Maps a single product object from its CSV structure to a JSON object based on the provided mapping.
  * @param {Object} product - The product object from the parsed CSV.
  * @param {Array<Object>} columnMapping - The mapping configuration for transformations.
+ * @param {Map<string, {code: string, amount: number, count_code: string, mk_id: string}>} warehouseStock - The Map of stock items.
  * @returns {Promise<Object>} A promise that resolves to the mapped product as a JSON object.
  */
-const mapProduct = async (product, columnMapping) => {
+const mapProduct = async (product, columnMapping, warehouseStock) => {
     const productJson = {};
     for (const mapping of columnMapping) {
         // Handle direct mapping: one csvHeader to one jsonKey
@@ -102,6 +87,13 @@ const mapProduct = async (product, columnMapping) => {
             productJson[jsonKey] = await transform(undefined, product);
         }
     }
+
+    // Add stock amount from the warehouse service
+    productJson.stock_amount = getProductStockAmount(warehouseStock, product.Code);
+
+    // Add pricelist from the price service
+    productJson.pricelist = await getProductPricelist(product.Code);
+
     return productJson;
 };
 
@@ -116,6 +108,9 @@ const productsToJson = async (columnMapping = productMapping) => {
             throw new Error('A valid columnMapping array must be provided to productsToJson.');
         }
 
+        console.log('Fetching warehouse stock from Metakocka...');
+        const warehouseStock = await getWarehouseStock();
+
         const allProducts = await parseProductsCsv();
         const parentProductCodeColumn = 'Koda nadprodukta';
         const productCodeColumn = 'Code';
@@ -128,7 +123,7 @@ const productsToJson = async (columnMapping = productMapping) => {
                 if (!childrenByParentCode[parentCode]) {
                     childrenByParentCode[parentCode] = [];
                 }
-                childrenByParentCode[parentCode].push(await mapProduct(product, columnMapping));
+                childrenByParentCode[parentCode].push(await mapProduct(product, columnMapping, warehouseStock));
             }
         }
 
@@ -137,7 +132,7 @@ const productsToJson = async (columnMapping = productMapping) => {
         for (const product of allProducts) {
             // Process only products that are not children themselves.
             if (!product[parentProductCodeColumn]) {
-                const mappedProduct = await mapProduct(product, columnMapping);
+                const mappedProduct = await mapProduct(product, columnMapping, warehouseStock);
                 // Attach children if any exist for this product.
                 mappedProduct.child_products = childrenByParentCode[product[productCodeColumn]] || [];
                 parentProductsData.push(mappedProduct);
