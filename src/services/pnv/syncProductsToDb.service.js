@@ -3,6 +3,7 @@ const { parse } = require('csv-parse');
 const { getProductPricelist } = require("../metakocka/price.service");
 const { getWarehouseStock, getProductStockAmount } = require("../metakocka/warehouse.service");
 const fs = require('fs');
+const { getDb } = require('../db/mongo.service');
 const path = require('path');
 
 /**
@@ -100,12 +101,13 @@ const mapProduct = async (product, columnMapping, warehouseStock) => {
 /**
  * Main function to parse products and structure them into a parent-child hierarchy.
  * It returns an array of parent products, each containing an array of its child products.
+ * The resulting data is then saved to the 'products' collection in MongoDB.
  * @param {Array<Object>} [columnMapping=productMapping] - An array of objects specifying the mapping.
  */
-const productsToJson = async (columnMapping = productMapping) => {
+const syncProductsToDb = async (columnMapping = productMapping) => {
     try {
         if (!columnMapping || !Array.isArray(columnMapping) || columnMapping.length === 0) {
-            throw new Error('A valid columnMapping array must be provided to productsToJson.');
+            throw new Error('A valid columnMapping array must be provided to syncProductsToDb.');
         }
 
         console.log('Fetching warehouse stock from Metakocka...');
@@ -139,11 +141,43 @@ const productsToJson = async (columnMapping = productMapping) => {
             }
         }
 
-        const pnvDataDir = path.resolve(process.env.DATA_PATH || path.join(__dirname, '..', '..', '..', 'data'), 'pnv');
-        const jsonFilePath = path.join(pnvDataDir, 'products.json');
+        console.log('Syncing products to MongoDB...');
+        const db = getDb();
+        const productsCollection = db.collection('products');
 
-        await fs.promises.writeFile(jsonFilePath, JSON.stringify(parentProductsData, null, 2));
-        console.log(`Successfully created products JSON file at: ${jsonFilePath}`);
+        const allIncomingCodes = new Set(parentProductsData.map(p => p.code));
+
+        // Mark products not in the latest sync as inactive
+        const updateResult = await productsCollection.updateMany(
+            { code: { $nin: Array.from(allIncomingCodes) }, active: { $ne: false } },
+            { $set: { active: false, updatedAt: new Date() } }
+        );
+
+        if (updateResult.modifiedCount > 0) {
+            console.log(`Marked ${updateResult.modifiedCount} products as inactive.`);
+        }
+
+        // Prepare bulk operations for upserting products
+        if (parentProductsData.length > 0) {
+            const bulkOps = parentProductsData.map(product => ({
+                updateOne: {
+                    filter: { code: product.code },
+                    update: {
+                        $set: { ...product, active: true, updatedAt: new Date() },
+                        $setOnInsert: { createdAt: new Date() }
+                    },
+                    upsert: true
+                }
+            }));
+
+            const bulkResult = await productsCollection.bulkWrite(bulkOps);
+            console.log(`Successfully synced products to MongoDB.`);
+            console.log(`- ${bulkResult.nUpserted} products created.`);
+            console.log(`- ${bulkResult.nModified} products updated.`);
+        } else {
+            console.log('No products to sync.');
+        }
+
         return parentProductsData;
 
     } catch (error) {
@@ -153,4 +187,4 @@ const productsToJson = async (columnMapping = productMapping) => {
     }
 };
 
-module.exports = { productsToJson };
+module.exports = { syncProductsToDb };

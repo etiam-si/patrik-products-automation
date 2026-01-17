@@ -1,37 +1,22 @@
-const fs = require('fs/promises');
-const path = require('path');
-
-/**
- * Retrieves the path to the products.json file.
- * It constructs the path relative to the project root, assuming a 'data' directory.
- * @returns {string} The absolute path to products.json.
- */
-const getProductsFilePath = () => {
-    // This logic should be consistent with where productsToJson.service.js saves the file.
-    const dataDir = process.env.DATA_PATH || path.join(__dirname, '..', '..', 'data');
-    return path.resolve(dataDir, 'pnv', 'products.json');
-};
-
-/**
- * Reads and parses the products.json file.
- * @returns {Promise<Array<Object>>} A promise that resolves with the array of product data.
- */
-const getProductsData = async () => {
-    const filePath = getProductsFilePath();
-    try {
-        const data = await fs.readFile(filePath, 'utf8');
-        return JSON.parse(data);
-    } catch (error) {
-        // If the file doesn't exist or is unreadable, throw an error.
-        console.error(`Error reading or parsing products file at ${filePath}:`, error);
-        throw new Error('Product data is not available.');
-    }
-};
+const productService = require('../services/product.service');
 
 exports.getAllProducts = async (req, res) => {
     try {
-        const data = await getProductsData();
+        const data = await productService.getAllProducts();
         res.json({ success: true, data });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
+exports.getProductByCode = async (req, res) => {
+    try {
+        const { code } = req.params;
+        const product = await productService.getProductByCode(code);
+        if (!product) {
+            return res.status(404).json({ success: false, message: `Product with code ${code} not found.` });
+        }
+        res.json({ success: true, data: product });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
@@ -39,14 +24,7 @@ exports.getAllProducts = async (req, res) => {
 
 exports.getProductsAsTsv = async (req, res) => {
     try {
-        const products = await getProductsData();
-
-        const header = 'Naziv\tKategorija\n';
-        // Map only parent products to TSV rows, excluding child products.
-        const tsvRows = products.map(p => 
-            `${p.product_name}\t${p.tris_category_name || ''}`
-        );
-        const tsv = header + tsvRows.join('\n');
+        const tsv = await productService.generateProductsTsv();
 
         res.header('Content-Type', 'text/tab-separated-values');
         res.header('Content-Disposition', 'attachment; filename="products.tsv"');

@@ -2,8 +2,8 @@ const axios = require('axios');
 const fs = require('fs/promises');
 const path = require('path');
 const crypto = require('crypto');
-const { pipeline } = require('stream/promises');
-const { productsToJson } = require('./productsToJson.service');
+const { pipeline } = require('stream/promises'); 
+const { syncProductsToDb } = require('./syncProductsToDb.service');
 
 /**
  * Creates the authentication cookie string required for PNV API requests.
@@ -106,7 +106,7 @@ const downloadProducts = async () => {
         await downloadFile(fileUrl, savePath, cookie);
 
         console.log('Processing downloaded products.csv into JSON format...');
-        await productsToJson();
+        await syncProductsToDb();
     } catch (error) {
         console.error('Failed to complete product download process:', error.message);
         // Depending on application needs, you might want to re-throw the error

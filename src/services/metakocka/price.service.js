@@ -30,7 +30,12 @@ async function getProductPricelist(code) {
                 const priceDef = item.price_def || {};
                 return {
                     name: item.title,
-                    valid_from: item.valid_from,
+                    valid_from: new Date(
+                        item.valid_from.replace(
+                            /^(\d{4}-\d{2}-\d{2})([+-]\d{2}:\d{2})$/,
+                            "$1T00:00:00$2"
+                        )
+                    ),
                     price: priceDef.price ? parseFloat(priceDef.price.replace(',', '.')) : 0,
                     vat: priceDef.tax_desc ? parseInt(priceDef.tax_desc, 10) : 0,
                 };

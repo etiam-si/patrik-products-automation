@@ -55,7 +55,7 @@ function getProductStock(warehouseStock, code) {
  */
 function getProductStockAmount(warehouseStock, code) {
     const productStock = getProductStock(warehouseStock, code);
-    return productStock ? productStock.amount : 0;
+    return productStock ? Number(productStock.amount) : 0;
 }
 
 module.exports = { getWarehouseStock, getProductStock, getProductStockAmount };
