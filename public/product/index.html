@@ -363,7 +363,7 @@
         'code': 'Code',
         'product_name': 'Product Name',
         'categories': 'Categories',
-        'tris_category_name': 'Cat. Recharge (AI generated)',
+        'ai_categories': 'Cat. Recharge (AI generated)',
       };
       const mainHeaders = Object.keys(mainHeaderConfig);
       let allHeaders = [];
@@ -435,8 +435,8 @@
             let className = '';
             if (header === 'code') className = 'col-code';
             if (header === 'product_name') className = 'col-product-name';
-            if (header === 'categories') className = 'col-categories';
-            if (header === 'tris_category_name') className = 'col-tris-category';
+            if (header === 'categories' || header === 'ai_categories') className = 'col-categories';
+            if (header === 'ai_categories') className = 'col-tris-category';
             return `<th class="${className}">${mainHeaderConfig[header]}</th>`;
           }).join('');
         tableHead.appendChild(headerRow);
@@ -457,6 +457,8 @@
             if (typeof value === 'boolean') {
               cellClass = value ? 'boolean-true' : 'boolean-false';
               value = value ? 'Yes' : 'No';
+            } else if (header === 'ai_categories' && Array.isArray(value)) {
+              value = value.map(cat => cat.categoryName).join(' / ');
             } else if (Array.isArray(value)) {
               value = value.join(' / ');
             }

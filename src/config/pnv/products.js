@@ -1,5 +1,5 @@
 const { splitStringByBackslash, transformToBoolean } = require('../../services/pnv/productMapping.service');
-const { getCategoryNameForProductCode } = require('../../services/ai/trisCategoryIdentification.service');
+const { getCategoryNameForProductCode } = require('../../services/ai/categoryIdentification.service');
 
 
 module.exports = {
@@ -17,12 +17,6 @@ module.exports = {
         { csvHeader: 'Košarica', jsonKey: 'cart', transform: transformToBoolean },
         { csvHeader: 'Mission', jsonKey: "mission", transform: transformToBoolean },
         { csvHeader: 'New', jsonKey: 'new', transform: transformToBoolean },
-        { csvHeader: 'Priporočamo', jsonKey: 'recomended', transform: transformToBoolean },
-        // This mapping generates a new field by calling an async function.
-        // It doesn't use a csvHeader, but the transform function gets the whole product row.
-        {
-            jsonKey: 'tris_category_name',
-            transform: (value, product) => getCategoryNameForProductCode(product['Code'])
-        },
+        { csvHeader: 'Priporočamo', jsonKey: 'recomended', transform: transformToBoolean }
     ]
 }

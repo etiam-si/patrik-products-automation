@@ -112,6 +112,7 @@ const syncProductsToDb = async (columnMapping = productMapping) => {
 
         console.log('Fetching warehouse stock from Metakocka...');
         const warehouseStock = await getWarehouseStock();
+        // const warehouseStock = new Map();
 
         const allProducts = await parseProductsCsv();
         const parentProductCodeColumn = 'Koda nadprodukta';

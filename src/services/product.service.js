@@ -45,14 +45,21 @@ const getProductByCode = async (code) => {
 
 /**
  * Generates a TSV string from the products data.
+ * @param {string} exportId - The export identifier to get the category for (e.g., 'tris').
  * @returns {Promise<string>} A promise that resolves with the TSV content.
  */
-const generateProductsTsv = async () => {
+const generateProductsTsv = async (exportId) => {
+    if (!exportId) {
+        throw new Error('exportId is required to generate the TSV.');
+    }
     const products = await getAllProducts();
     const header = 'Naziv\tKategorija\n';
-    const tsvRows = products.map(p =>
-        `${p.product_name}\t${p.tris_category_name || ''}`
-    );
+    const tsvRows = products.map(p => {
+        // Find the category that matches the requested exportId
+        const categoryInfo = p.categories?.find(cat => cat.exportId === exportId);
+        const categoryName = categoryInfo ? categoryInfo.categoryName : '';
+        return `${p.product_name}\t${categoryName}`;
+    });
     return header + tsvRows.join('\n');
 };
 
