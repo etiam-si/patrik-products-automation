@@ -1,7 +1,7 @@
 const { runPnvProductSync } = require('../../services/pnv/pnvProductsSync.service');
 const { identifyProductCategories } = require('../../services/ai/categoryIdentification.service');
 const { monitorFunction } = require('../../services/analytics.service');
-const { getAiEnabledExports } = require("../../services/exports/exports.service");
+const { getAiEnabledExports } = require("../../services/exports.service");
 
 
 

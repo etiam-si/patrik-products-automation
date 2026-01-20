@@ -1,4 +1,4 @@
-const { getDb } = require('../db/mongo.service');
+const { getDb } = require('../services/db/mongo.service');
 const { ObjectId } = require('mongodb');
 
 /**
