@@ -2,6 +2,7 @@ const { productMapping } = require("../../config/pnv/products")
 const { parse } = require('csv-parse');
 const { getProductPricelist } = require("../metakocka/price.service");
 const { getWarehouseStock, getProductStockAmount } = require("../metakocka/warehouse.service");
+const { monitorFunction } = require('../analytics.service');
 const fs = require('fs');
 const { getDb } = require('../db/mongo.service');
 const path = require('path');
@@ -90,10 +91,17 @@ const mapProduct = async (product, columnMapping, warehouseStock) => {
     }
 
     // Add stock amount from the warehouse service
-    productJson.stock_amount = getProductStockAmount(warehouseStock, product.Code);
+    productJson.stock_amount = await monitorFunction(
+        () => getProductStockAmount(warehouseStock, product.Code),
+        'getProductStockAmount'
+    );
 
     // Add pricelist from the price service
-    productJson.pricelist = await getProductPricelist(product.Code);
+    productJson.pricelist = await monitorFunction(
+        () => getProductPricelist(product.Code),
+        'getProductPricelist',
+        { code: product.Code }
+    );
 
     return productJson;
 };
@@ -104,15 +112,17 @@ const mapProduct = async (product, columnMapping, warehouseStock) => {
  * The resulting data is then saved to the 'products' collection in MongoDB.
  * @param {Array<Object>} [columnMapping=productMapping] - An array of objects specifying the mapping.
  */
-const syncProductsToDb = async (columnMapping = productMapping) => {
+const processPnvProductExport = async (columnMapping = productMapping) => {
     try {
         if (!columnMapping || !Array.isArray(columnMapping) || columnMapping.length === 0) {
-            throw new Error('A valid columnMapping array must be provided to syncProductsToDb.');
+            throw new Error('A valid columnMapping array must be provided to processPnvProductExport.');
         }
 
-        console.log('Fetching warehouse stock from Metakocka...');
-        const warehouseStock = await getWarehouseStock();
-        // const warehouseStock = new Map();
+        // console.log('Fetching warehouse stock from Metakocka...');
+        const warehouseStock = await monitorFunction(
+            () => getWarehouseStock(),
+            'getWarehouseStock'
+        );
 
         const allProducts = await parseProductsCsv();
         const parentProductCodeColumn = 'Koda nadprodukta';
@@ -188,4 +198,4 @@ const syncProductsToDb = async (columnMapping = productMapping) => {
     }
 };
 
-module.exports = { syncProductsToDb };
+module.exports = { processPnvProductExport };

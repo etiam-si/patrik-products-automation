@@ -2,16 +2,20 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const logger = require('./middleware/logger');
-const analyticsLogger = require('./middleware/analytics');
+const apiAnalyticsLogger = require('./middleware/analytics');
 const exampleRoutes = require('./routes/exampleRoutes');
 const productRoutes = require('./routes/productRoutes');
+const exportsRoutes = require('./routes/exportsRoutes');
 
 const initJobs = require("./jobs")
 
 
 app.use(express.json());
 app.use(logger);
-app.use(analyticsLogger);
+app.use(apiAnalyticsLogger);
+app.set('trust proxy', true);
+
+
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -19,6 +23,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 // Routes
 app.use('/api/example', exampleRoutes);
 app.use('/api/product', productRoutes);
+app.use("/api/exports", exportsRoutes)
 
 // Health Check
 app.get('/', (req, res) => {

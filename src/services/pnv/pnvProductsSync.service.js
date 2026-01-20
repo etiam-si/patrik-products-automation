@@ -1,55 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="utf-8">
-    <title>downloadProducts.service.js - Documentation</title>
-    
-    
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
-    <script src="scripts/nav.js" defer></script>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav >
-    
-    
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#downloadFile">downloadFile</a></li><li><a href="global.html#downloadProducts">downloadProducts</a></li><li><a href="global.html#fetchDownloadLink">fetchDownloadLink</a></li><li><a href="global.html#getAllParentProductsData">getAllParentProductsData</a></li><li><a href="global.html#getAuthCookie">getAuthCookie</a></li><li><a href="global.html#getUniqueParentProductCodes">getUniqueParentProductCodes</a></li><li><a href="global.html#parseProductsCsv">parseProductsCsv</a></li><li><a href="global.html#productsToJson">productsToJson</a></li></ul>
-    
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">downloadProducts.service.js</h1>
-    
-
-    
-
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const axios = require('axios');
+const axios = require('axios');
 const fs = require('fs/promises');
 const path = require('path');
 const crypto = require('crypto');
 const { pipeline } = require('stream/promises');
+const { processPnvProductExport } = require('./processPnvProductExport.service');
+const { monitorFunction } = require('../analytics.service');
+
 
 /**
  * Creates the authentication cookie string required for PNV API requests.
@@ -74,12 +30,13 @@ const getAuthCookie = () => {
 };
 
 /**
- * Fetches the download link for the products export from the PNV API.
+ * Triggers the generation of a products export file on the PNV server and fetches the resulting download link.
  * @param {string} cookie - The authentication cookie.
- * @returns {Promise&lt;string>} The relative URL path to the download file.
+ * This function sends a POST request that initiates the file creation on the remote server.
+ * @returns {Promise<string>} The relative URL path to the download file.
  * @throws {Error} If the request fails or the download link is not found in the response.
  */
-const fetchDownloadLink = async (cookie) => {
+const fetchPnvDownloadLink = async (cookie) => {
     const exportUrl = process.env.PNV_EXPORT_PRODUCTS_URL;
     if (!exportUrl) {
         throw new Error('PNV_EXPORT_PRODUCTS_URL must be set in the environment variables.');
@@ -95,7 +52,6 @@ const fetchDownloadLink = async (cookie) => {
                 'Cookie': cookie,
             }
         });
-        console.log(response.data)
         const downloadLink = response.data.download_link;
         if (!downloadLink) {
             throw new Error(`'download_link' not found in API response. Response data: ${JSON.stringify(response.data)}`);
@@ -112,11 +68,10 @@ const fetchDownloadLink = async (cookie) => {
  * @param {string} fileUrl - The full URL of the file to download.
  * @param {string} savePath - The local file path to save the downloaded file.
  * @param {string} cookie - The authentication cookie.
- * @returns {Promise&lt;void>}
+ * @returns {Promise<void>}
  * @throws {Error} If the file download or save operation fails.
  */
 const downloadFile = async (fileUrl, savePath, cookie) => {
-    console.log(`Downloading file from: ${fileUrl}`);
     const writer = require('fs').createWriteStream(savePath); // Use standard fs for createWriteStream
 
     const response = await axios.get(fileUrl, {
@@ -125,13 +80,12 @@ const downloadFile = async (fileUrl, savePath, cookie) => {
     });
 
     await pipeline(response.data, writer);
-    console.log(`File successfully downloaded and saved to: ${savePath}`);
 };
 
 /**
  * Main service function to download the PNV products export file.
  */
-const downloadProducts = async () => {
+const runPnvProductSync = async () => {
     try {
         const baseUrl = process.env.PNV_BASE_URL;
         if (!baseUrl) {
@@ -139,7 +93,11 @@ const downloadProducts = async () => {
         }
 
         const cookie = getAuthCookie();
-        const downloadLink = await fetchDownloadLink(cookie);
+        const downloadLink = await monitorFunction(
+            () => fetchPnvDownloadLink(cookie),
+            'fetchPnvDownloadLink'
+        );
+
 
         const fileUrl = `${baseUrl}/${downloadLink}`;
         const fileName = 'products.csv';
@@ -151,6 +109,12 @@ const downloadProducts = async () => {
 
         await fs.mkdir(saveDir, { recursive: true });
         await downloadFile(fileUrl, savePath, cookie);
+
+        await monitorFunction(
+            () => processPnvProductExport(),
+            'processPnvProductExport'
+        );
+
     } catch (error) {
         console.error('Failed to complete product download process:', error.message);
         // Depending on application needs, you might want to re-throw the error
@@ -158,28 +122,4 @@ const downloadProducts = async () => {
     }
 };
 
-module.exports = { downloadProducts };</code></pre>
-        </article>
-    </section>
-
-
-
-
-    
-    
-</div>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Tue Jan 13 2026 09:17:17 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
-</footer>
-
-<script>prettyPrint();</script>
-<script src="scripts/polyfill.js"></script>
-<script src="scripts/linenumber.js"></script>
-
-
-
-</body>
-</html>
+module.exports = { runPnvProductSync };

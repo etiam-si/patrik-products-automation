@@ -1,5 +1,6 @@
 const { GoogleGenerativeAI, SchemaType } = require('@google/generative-ai');
 const { getDb } = require('../db/mongo.service');
+const { ObjectId } = require('mongodb');
 const { logAiUsage } = require('./analytics.service');
 
 const API_KEY = process.env.GOOGLE_API_KEY;
@@ -62,7 +63,7 @@ async function processBatch(products, validCategories, exportId) {
 
         const jsonResponse = JSON.parse(result.response.text());
         return jsonResponse.results || [];
-        
+
     } catch (error) {
         console.error('Batch Error:', error.message);
         // Log the full error for more details in case of API issues
@@ -84,12 +85,13 @@ async function identifyProductCategories(exportId) {
         const categoriesCollection = db.collection('categories');
 
         // 1. Fetch valid categories for the given exportId from MongoDB
-        const validCategories = await categoriesCollection.find({ exportId }).toArray();
+        const categoriesCursor = categoriesCollection.find({exportId: exportId.toString()});
+        const validCategories = await categoriesCursor.toArray();
+
         if (validCategories.length === 0) {
             console.warn(`No categories found for exportId: "${exportId}". Skipping categorization.`);
             return;
         }
-        const categoryMap = new Map(validCategories.map(c => [c._id.toString(), c.label]));
 
         // 2. Find products that do NOT have a category for this exportId yet
         const productsToCategorize = await productsCollection.find({
@@ -102,12 +104,14 @@ async function identifyProductCategories(exportId) {
         }
 
         console.log(`Found ${productsToCategorize.length} new products to categorize for exportId "${exportId}".`);
+        const categoriesForPrompt = validCategories.map(c => ({ id: c._id.toString(), label: c.label }));
+        const categoryMap = new Map(categoriesForPrompt.map(c => [c.id, c.label]));
         const newResults = [];
         for (let i = 0; i < productsToCategorize.length; i += BATCH_SIZE) {
-        // for (let i = 0; i < 20; i += BATCH_SIZE) {
+            // for (let i = 0; i < 20; i += BATCH_SIZE) {
             const batch = productsToCategorize.slice(i, i + BATCH_SIZE);
             console.log(`Processing batch ${Math.floor(i / BATCH_SIZE) + 1} for exportId "${exportId}"...`);
-            const batchResults = await processBatch(batch, validCategories.map(c => ({ id: c._id.toString(), label: c.label })), exportId);
+            const batchResults = await processBatch(batch, categoriesForPrompt, exportId);
             newResults.push(...batchResults);
         }
 

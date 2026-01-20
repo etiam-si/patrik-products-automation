@@ -1,20 +1,14 @@
-const setupProductDownloadJob = require('./pnv/downloadProducts');
-const { downloadProducts } = require('../services/pnv/downloadProducts.service');
-const { identifyProductCategories } = require('../services/ai/categoryIdentification.service');
+const setupPnvProductSyncJob = require('./pnv/pnvProductsSync');
+const { pnvProductSyncJob } = require('./pnv/pnvProductsSync.job');
+
 
 
 
 const initJobs = async () => {
     console.log('--- Running setup jobs ---');
-    await downloadProducts();
-
-    const exportIdForCategorization = process.env.CATEGORIZATION_EXPORT_ID || '696a45517b6f46ec7c01a540';
-    console.log('--- Starting product category identification ---');
-    await identifyProductCategories(exportIdForCategorization);
-    console.log('--- Product category identification complete ---');
-
-    console.log('--- Initializing all background jobs ---');
-    setupProductDownloadJob();
+    pnvProductSyncJob()
+    // Setup cron job for PNV products sync job
+    setupPnvProductSyncJob();
 
 };
 
