@@ -13,8 +13,6 @@ const pnvProductSyncJob = async () => {
     //     'runPnvProductSync'
     // );
 
-    // const exportIdForCategorization = process.env.CATEGORIZATION_EXPORT_ID || '696a45517b6f46ec7c01a540';
-
     const aiEnabledExports = await getAiEnabledExports();
 
     for (const _export of aiEnabledExports) {
