@@ -8,10 +8,10 @@ const { getAiEnabledExports } = require("../../services/exports.service");
 
 const pnvProductSyncJob = async () => {
 
-    // await monitorFunction(
-    //     () => runPnvProductSync(),
-    //     'runPnvProductSync'
-    // );
+    await monitorFunction(
+        () => runPnvProductSync(),
+        'runPnvProductSync'
+    );
 
     const aiEnabledExports = await getAiEnabledExports();
 

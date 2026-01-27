@@ -16,33 +16,31 @@ const getAllProducts = async () => {
 };
 
 /**
- * Fetches a single product from the database by its code, either in the main code
- * or in any child product's code.
- * @param {string} code - The code of the product to find.
+ * Fetches a single product from the database by its code or token.
+ * This function searches for the identifier in the main product's `code` and `token` fields,
+ * as well as in the `code` and `token` fields of any child products.
+ * @param {string} identifier - The code or token of the product to find.
  * @returns {Promise<Object|null>} A promise that resolves with the product document or null if not found.
  */
-const getProductByCode = async (code) => {
+const getProductByIdentifier = async (identifier) => {
     try {
         const db = getDb();
 
-        // First, try to find by main product code
-        let product = await db.collection('products').findOne(
-            { code },
-        );
-
-        if (product) return product;
-
-        // If not found, try to find by child product code
-        product = await db.collection('products').findOne(
-            { "child_products.code": code });
-
-        return product; // could be null if still not found
+        // Use $or to find a match in any of the relevant fields
+        const product = await db.collection('products').findOne({
+            $or: [
+                { code: identifier },
+                { token: identifier },
+                { "child_products.code": identifier },
+                { "child_products.token": identifier }
+            ]
+        });
+        return product;
     } catch (error) {
-        console.error(`Error fetching product with code ${code} from database:`, error);
-        throw new Error(`An error occurred while fetching product with code ${code}.`);
+        console.error(`Error fetching product with identifier ${identifier} from database:`, error);
+        throw new Error(`An error occurred while fetching product with identifier ${identifier}.`);
     }
 };
-
 /**
  * Generates a TSV string from the products data.
  * @param {string} exportId - The export identifier to get the category for (e.g., 'tris').
@@ -63,4 +61,4 @@ const generateProductsTsv = async (exportId) => {
     return header + tsvRows.join('\n');
 };
 
-module.exports = { getAllProducts, getProductByCode, generateProductsTsv };
+module.exports = { getAllProducts, getProductByIdentifier, generateProductsTsv };

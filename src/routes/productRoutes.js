@@ -7,6 +7,6 @@ router.get('/', productController.getAllProducts);
 router.get('/tsv', productController.getProductsAsTsv);
 
 // GET /api/products/by-code/:code - Retrieves a single product by its code
-router.get('/:code', productController.getProductByCode);
+router.get('/:code', productController.getProductByIdentifier);
 
 module.exports = router;

@@ -9,10 +9,10 @@ exports.getAllProducts = async (req, res) => {
     }
 };
 
-exports.getProductByCode = async (req, res) => {
+exports.getProductByIdentifier = async (req, res) => {
     try {
         const { code } = req.params;
-        const product = await productService.getProductByCode(code);
+        const product = await productService.getProductByIdentifier(code);
         if (!product) {
             return res.status(404).json({ success: false, message: `Product with code ${code} not found.` });
         }
