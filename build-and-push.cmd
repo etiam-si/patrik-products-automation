@@ -1,5 +1,5 @@
 @echo off
-set IMAGE=etiamsi/patrik-products-automation
+set IMAGE=etiamsi/t4a-export-api
 
 docker build . -t %IMAGE%
 IF ERRORLEVEL 1 (
