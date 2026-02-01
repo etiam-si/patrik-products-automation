@@ -3,10 +3,7 @@ const app = express();
 const path = require('path');
 const logger = require('./middleware/logger');
 const apiAnalyticsLogger = require('./middleware/analytics');
-const exampleRoutes = require('./routes/exampleRoutes');
-const productRoutes = require('./routes/productRoutes');
-const exportsRoutes = require('./routes/exportsRoutes');
-const categoriesRoutes = require('./routes/categoriesRoutes');
+const exportRoutes = require('./routes/export');
 
 const initJobs = require("./jobs")
 
@@ -20,10 +17,7 @@ app.set('trust proxy', true);
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Routes
-app.use('/api/example', exampleRoutes);
-app.use('/api/product', productRoutes);
-app.use("/api/exports", exportsRoutes);
-app.use('/api/categories', categoriesRoutes);
+app.use('/api/export', exportRoutes);
 
 // Health Check
 app.get('/', (req, res) => {
